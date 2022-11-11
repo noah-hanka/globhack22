@@ -17,7 +17,7 @@ def form():
     password = request.form["password"]
     print(email)
     print(password)
-    with open('userCredentials.csv') as credentials:
+    with open('./db/userCredentials.csv') as credentials:
         reader = csv.reader(credentials,delimiter=',')
         for row in reader:
             if email == row[0]:
