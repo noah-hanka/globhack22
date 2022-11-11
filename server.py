@@ -3,15 +3,6 @@ import csv
 from csv import DictWriter
 app = Flask(__name__)
 
-
-@app.route('/makeAccount',methods=["POST"])
-def makeAccount():
-    email = request.form["email"]
-    password = request.form["password"]
-
-
-    return render_template("form.html")
-
 @app.route('/form',methods=["POST"])
 def form():
     email = request.form["email"]
@@ -31,6 +22,7 @@ def form():
 @app.route('/')
 def loginPage():
     return render_template('./static/login.html')
+
 @app.route('/makeAccount',methods=["POST"])
 def makeAccount():
     user = request.form["username"]
@@ -47,11 +39,4 @@ def makeAccount():
             else:
                 csv_writer = DictWriter(cred, fieldnames=fields)
                 csv_writer.writerow(row_app)
-    cred.close()
-
-
     return render_template("./static/form.html")
-@app.route('/form',methods=["POST"]):
-def formPage():
-    user = request.form["username"]
-    pw = request.form["pw"]
