@@ -14,18 +14,14 @@ def makeAccount():
     return render_template("./static/form.html")
 @app.route('/form',methods=["POST"])
 def formPage():
-    usertype = request.form["usertype"]
     email = request.form["email"]
     password = request.form["password"]
-    if usertype == '':
-        with open('userCredentials.csv') as credentials:
-            reader = csv.reader(credentials,delimiter=',')
-            for row in reader:
-                if email == row[0]:
-                    if password == row[1]:
-                        return render_template('./static/form.html',email = email, password = password)
-                    else:
-                        break
-            return render_template('/static/login.html',invalidLogin = True)
-    else:
-        pass
+    with open('userCredentials.csv') as credentials:
+        reader = csv.reader(credentials,delimiter=',')
+        for row in reader:
+            if email == row[0]:
+                if password == row[1]:
+                    return render_template('./static/form.html',email = email, password = password)
+                else:
+                    break
+        return render_template('/static/login.html',invalidLogin = True)
