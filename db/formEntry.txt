@@ -1,2 +1,0 @@
-Street_Address	State	ZipCode	Resources_Required	Notes
-123 Uconn Ave	CT	06268	Water	"Have no access to water, need water bottles"
