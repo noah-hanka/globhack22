@@ -136,7 +136,6 @@ def makeAccount():
         return render_template("form.html", email=email, password=pw)
 
 
-plt.style.use('ggplot')
 
 
 def getCounts(somePeople):
