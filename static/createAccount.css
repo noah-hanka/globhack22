@@ -9,7 +9,18 @@ body {
     display: grid;
     justify-items: center;
     align-items: center;
-    background-color: #3a3a3a;
+    background-color: #979DAC;
+    background-image: url("createAccount.jpg");
+    background-size: cover;
+    color: white;
+}
+
+#invalidLogin {
+    background-color: rgba(215, 87, 87, 0.5);
+    color: black;
+    padding: 2rem;
+    font-size: large;
+    border-radius: 1rem;
 }
 
 #main-holder {
@@ -18,9 +29,11 @@ body {
     display: grid;
     justify-items: center;
     align-items: center;
-    background-color: white;
+    background-color: #002855;
     border-radius: 7px;
-    box-shadow: 0px 0px 5px 2px black;
+    border: none;
+
+    background-color: rgba(0, 0, 0, .4);
 }
 
 
@@ -40,20 +53,30 @@ body {
 .login-form-field {
     border: none;
     border-bottom: 1px solid #3a3a3a;
-    margin-bottom: 10px;
     border-radius: 3px;
     outline: none;
-    padding: 0px 0px 5px 5px;
 }
 
-#login-form-submit {
+#create-form-submit {
     width: 100%;
     padding: 7px;
     border: none;
     border-radius: 5px;
     color: white;
     font-weight: bold;
-    background-color: #3a3a3a;
+    background-color: #023E7D;
     cursor: pointer;
     outline: none;
+}
+
+
+.input-div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 0px 0px 5px 5px;
+
 }

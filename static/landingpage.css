@@ -1,6 +1,7 @@
 body {
     margin: 0;
     padding: 0;
+    color: white;
 }
 
 #mainpage {
@@ -15,11 +16,11 @@ body {
 }
 
 #box {
-    width: 30%;
-    height: 30%;
+    width: 45%;
+    height: 45%;
     padding: 1rem;
     border-radius: 1rem;
-    background-color: rgba(0, 0, 0, .3);
+    background-color: rgba(0, 0, 0, .5);
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -34,12 +35,6 @@ button {
     border: none;
     width: 100%;
     height: 100%;
-    transition: all .25s;
-
-}
-
-button:hover {
-    transform: scale(1.05);
 }
 
 form {
