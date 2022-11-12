@@ -27,8 +27,23 @@ body {
 }
 
 button {
-    margin: 1rem 0 1rem 0;
     border-radius: 1rem;
+    padding: .5rem;
     background-color: #023E7D;
-    color: #001233;
+    color: white;
+    border: none;
+    width: 100%;
+    height: 100%;
+    transition: all .25s;
+
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+form {
+    height: 20%;
+    width: 70%;
+    margin: .5rem 0 .5rem 0;
 }
