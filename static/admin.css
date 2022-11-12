@@ -80,6 +80,8 @@ button {
     flex-wrap: wrap;
     align-items: center;
     justify-content: flex-start;
+    border-radius: 1rem;
+    padding: .25rem;
 }
 
 .parameter {
