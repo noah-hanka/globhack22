@@ -114,8 +114,6 @@ def admin():
 
                 people.sort(reverse=True, key=weightDic)
                 n = len(people)
-                myDic = getCities(people)
-                makePie(myDic)
                 myCounts = getCounts(people)
                 makeGraph(myCounts)
 
@@ -220,22 +218,3 @@ def getCities(somePeople):
             cities[curCity] = 1
 
     return cities
-
-
-def makePie(citiesDic):
-
-    myKeys = list(citiesDic.keys())
-    totals = list(citiesDic.values())
-
-    x_pos = [i for i, _ in enumerate(myKeys)]
-
-    plt.bar(x_pos, totals, color='green')
-    plt.xlabel("Resource")
-    plt.ylabel("Total Requests")
-    plt.xticks(x_pos, myKeys)
-
-    yint = range(min(totals), math.ceil(max(totals))+1)
-
-    matplotlib.pyplot.yticks(yint)
-    outputFile2 = os.path.join(THIS_FOLDER, './static/output2.jpg')
-    plt.savefig(outputFile2)
