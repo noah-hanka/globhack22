@@ -1,6 +1,8 @@
 from flask import Flask, render_template, redirect, url_for, request
 import csv
 from csv import DictWriter
+from tempfile import NamedTemporaryFile
+import shutil
 app = Flask(__name__)
 
 # langing page
@@ -27,7 +29,39 @@ def form():
     return render_template('userlogin.html',invalidLogin = True)
 @app.route('/submitForm', methods=["POST"])
 def submitForm():
-    pass
+    
+    email = request.form["email"]
+    password = request.form["password"]
+    address = request.form["address"]
+    city = request.form["city"]
+    state = request.form["state"]
+    zipCode = request.form["zipcode"]
+    water = request.form["group1"]
+    food = request.form["group2"]
+    elec = request.form["group3"]
+    shelter = request.form["group4"]
+    tp = request.form["group5"]
+
+    fields = ["email", "password", "street_address", "city", "state", "zipCode", "water", "food", "electricity", "shelter", "tp"]
+    row_app = {"email":email, "password":password, "street_address":address, "city":city, "state":state, "zipCode":zipCode, "water":water, "food":food, "electricity":elec, "shelter":shelter, "tp":tp}
+
+    with open('./db/formEntry.csv', 'r') as formR:
+        lines = list()
+        reader = csv.reader(formR, delimiter=",")
+        writer = DictWriter(formR, fieldnames=fields)
+        rewrite = False
+        for row in reader:
+            if email != row[0]:
+                lines.append(row)
+            else:
+                rewrite = True
+    if rewrite:
+        # update row
+        with open('./db/formEntry.csv', 'w') as formW:
+            writer.writerows(lines)
+    writer.writerow(row_app)
+                    
+    
 
 # administrator login routing
 @app.route('/adminlogin')
@@ -44,7 +78,7 @@ def admin():
             if email == row[0] and password == row[1]:
                 people = []
                 with open('formEntry.csv') as peopleFile:
-                    reader = csv.reader(credentials,delimiter=',')
+                    reader = csv.reader(peopleFile,delimiter=',')
                     for row in reader:
                         people.append(row)
                 n = len(people)
@@ -70,12 +104,11 @@ def makeAccount():
 
     with open('./db/userCredentials.csv', 'r+') as cred:
         csv_reader = csv.reader(cred, delimiter=",")
+        csv_writer = DictWriter(cred, fieldnames=fields)
         for row in csv_reader:
-            print(row[0])
             if email == row[0]:
                 # redirect to invalid login
                 return render_template("createAccount.html",invalidLogin=True)
-        csv_writer = DictWriter(cred, fieldnames=fields)
         csv_writer.writerow(row_app)
         return render_template("form.html",email=email,password=pw)
 
