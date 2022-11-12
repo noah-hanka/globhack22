@@ -22,7 +22,7 @@
             text-align: center;
         }
         form { 
-            margin: 0 auto; 
+            margin: 0 auto;
             width:250px;
         }   
     </style>
@@ -30,61 +30,65 @@
     <script defer src="form.js"></script>
 </head>
 
-<div class = "center">
-    <h1 style="text-align:center">Resources Assistance Form</h1>
-    <form class = "center" id = "basic-information" method = "post" action = "/userlogin">
-        <h2>Basic Information</h2>
-        <label for = "city">City Name:</label>
-        <input type = "text" id = "city" name = "city" required>
-        <label for = "state">State:</label>
-        <input type = "text" id = "state" name = "state" required>
-        <label for = "zipcode">Zip Code:</label>
-        <input type = "text" id = "zipcode" name = "zipcode" required>
-        <h2>Resource Information</h2>
-        <p>Do You Need Water?</p>
-        <div class = "center">
-            <form>
-                <input type = "radio" id = "watery" name = "urgency"; value = "watery">
+
+<div class = "btn-block">
+    <h1>Resources Assistance Form</h1>
+    <h2>Basic Information</h2>
+    <label for = "address">Street Address:</label>
+    <input type = "text" id = "address" name = "address" required>
+    <label for = "city">City Name:</label>
+    <input type = "text" id = "city" name = "city" required>
+    <label for = "state">State:</label>
+    <input type = "text" id = "state" name = "state" required>
+    <label for = "zipcode">Zip Code:</label>
+    <input type = "text" id = "zipcode" name = "zipcode" required>
+    <h2>Resource Information</h2>
+    <div class = "btn-block">
+        <form id = "basic-information" method = "post" action = "/userlogin">
+            <p>Do You Need Water?</p>
+            <fieldset id = "group1">
+                <input type = "radio" id = "watery" name = "group1"; value = "watery">
                 <label class = "inline" for = "watery">Yes</label>
                 <br>
-                <input type = "radio" id = "watern" name = "urgency"; value = "watern">
+                <input type = "radio" id = "watern" name = "group1"; value = "watern">
                 <label class = "inline" for = "watern">No</label>
-            </form>
+            </fieldset>
             <p style>Do You Need Food?</p>
-            <form>
-                <input type = "radio" id = "foody" name = "urgency"; value = "foody">
+            <fieldset id = "group2">
+                <input type = "radio" id = "foody" name = "group2"; value = "foody">
                 <label class = "inline" for = "foody">Yes</label>
                 <br>
-                <input type = "radio" id = "foodn" name = "urgency"; value = "foodn">
+                <input type = "radio" id = "foodn" name = "group2"; value = "foodn">
                 <label class = "inline" for = "foodn">No</label>
-            </form>
+            </fieldset>
             <p>Do You Have Electricity?</p>
-            <form>
-                <input type = "radio" id = "electricityy" name = "urgency"; value = "electricityy">
+            <fieldset id = "group3">
+                <input type = "radio" id = "electricityy" name = "group3"; value = "electricityy">
                 <label class = "inline" for = "electricityy">Yes</label>
                 <br>
-                <input type = "radio" id = "electricityn" name = "urgency"; value = "electricityn">
+                <input type = "radio" id = "electricityn" name = "group3"; value = "electricityn">
                 <label class = "inline" for = "electricityn">No</label>
-            </form>
+            </fieldset>
             <p>Do You Have Shelter?</p>
-            <form>
-                <input type = "radio" id = "sheltery" name = "urgency"; value = "sheltery">
+            <fieldset id = "group4">
+                <input type = "radio" id = "sheltery" name = "group4"; value = "sheltery">
                 <label class = "inline" for = "sheltery">Yes</label>
                 <br>
-                <input type = "radio" id = "sheltern" name = "urgency"; value = "sheltern">
+                <input type = "radio" id = "sheltern" name = "group4"; value = "sheltern">
                 <label class = "inline" for = "sheltern">No</label>
-            </form>
+            </fieldset>
             <p>Do You Have Toilet Paper?</p>
-            <form>
-                <input type = "radio" id = "tpy" name = "urgency"; value = "tpy">
+            <fieldset id = "group5">
+                <input type = "radio" id = "tpy" name = "group5"; value = "tpy">
                 <label class = "inline" for = "tpy">Yes</label>
                 <br>
-                <input type = "radio" id = "tpn" name = "urgency"; value = "tpn">
+                <input type = "radio" id = "tpn" name = "group5"; value = "tpn">
                 <label class = "inline" for = "tpn">No</label>
-            </form>
-        </div>
-        <div class = "center">
-            <input type="submit" value="Submit" id="form-submit">
-        </div>
-    </form>
+            </fieldset>
+            <div class = "btn-block">
+                <input type="submit" value="Submit" id="form-submit">
+            </div>
+        </form>
+    </div>
 </div>
+
