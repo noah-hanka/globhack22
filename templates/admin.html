@@ -33,7 +33,7 @@
                         {{people[i]["zipCode"]}}
                     </div>
                     {% if people[i]["weight"] >= 10 %}
-                    <div class="needs" style="background-color:red;">
+                    <div class="needs" style="background-color:rgba(232, 39, 39, 0.3);">
                         <div class="parameter">Priority Level: {{people[i]['weight']}}</div>
                         <div class='parameter'>Water: {{people[i]['water']}}</div>
                         <div class='parameter'>Food: {{people[i]["food"]}}</div>
@@ -43,7 +43,7 @@
                     </div>
                     {% endif %}
                     {% if 10 > people[i]["weight"] >= 5 %}
-                    <div class="needs" style="background-color:yellow;">
+                    <div class="needs" style="background-color: rgba(232, 199, 31, 0.457);">
                         <div class="parameter">Priority Level: {{people[i]['weight']}}</div>
                         <div class='parameter'>Water: {{people[i]['water']}}</div>
                         <div class='parameter'>Food: {{people[i]["food"]}}</div>
@@ -52,7 +52,8 @@
                         <div class='parameter'>Shelter: {{people[i]["shelter"]}}</div>
                     </div>
                     {% endif %}
-                    {% if people[i]["weight"] < 5%} <div class="needs" style="background-color:green;">
+                    {% if people[i]["weight"] < 5%} <div class="needs"
+                        style="background-color: rgba(111, 232, 31, 0.457);">
                         <div class="parameter">Priority Level: {{people[i]['weight']}}</div>
                         <div class='parameter'>Water: {{people[i]['water']}}</div>
                         <div class='parameter'>Food: {{people[i]["food"]}}</div>
