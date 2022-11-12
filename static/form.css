@@ -6,7 +6,7 @@ body {
 #mainpage {
     width: 100%;
     height: 100vh;
-    background-image: url("landingbackground.webp");
+    background-image: url("form.webp");
     background-size: cover;
     display: flex;
     flex-direction: row;
