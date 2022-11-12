@@ -18,8 +18,8 @@
                 <input type="hidden" name='password' value=password>
                 <button>Refresh</button>
             </form>
-            {% for i in range(count) %}
-                people will go here
+            {% for i in range(1,count) %}
+                <div>{{people[i]}}</div>
             {% endfor %}
         </div>
     </div>
