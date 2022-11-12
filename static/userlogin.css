@@ -28,7 +28,13 @@ body {
     background-color: rgba(0, 0, 0, .4);
 }
 
-
+#invalidLogin {
+    background-color: rgba(215, 87, 87, 0.5);
+    color: black;
+    padding: 2rem;
+    font-size: large;
+    border-radius: 1rem;
+}
 
 
 #login-form {
