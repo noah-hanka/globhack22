@@ -229,7 +229,7 @@ def makePie(citiesDic):
 
     x_pos = [i for i, _ in enumerate(myKeys)]
 
-    plt.bar(x_pos, totals, color='blue')
+    plt.bar(x_pos, totals, color='green')
     plt.xlabel("Resource")
     plt.ylabel("Total Requests")
     plt.xticks(x_pos, myKeys)
