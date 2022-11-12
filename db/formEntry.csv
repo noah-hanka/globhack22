@@ -1,2 +1,2 @@
-street_address,state,zipCode,rsrc_req,notes
-123 Uconn Ave,CT,6268,Water,"Have no access to water, need water bottles"
+street_address,state,zipCode,ssn,lic_no,birthday,rsrc_req,notes
+123 Uconn Ave,CT,6268,123456789,123456789,10/1/1990,Water,"Have no access to water, need water bottles"
