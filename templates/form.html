@@ -7,6 +7,9 @@
     <title>D.R.A.S. Relief Form</title>
     <link rel="stylesheet" href="static/base.css">
     <link rel="stylesheet" href="static/form.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 
 
@@ -25,47 +28,60 @@
         <label style = "font-size: 25px;" for = "zipcode">Zip Code:</label>
         <input type = "text" id = "zipcode" name = "zipcode" style = "width: 550px; margin-top: 5px; font-size: 20px; height: 30px;" required>
         <h2 style = "font-size: 33px;">Resource Information</h2>
-        <p style = "font-size: 25px;">Do You Have Water?</p>
-        <fieldset id = "group1">
-            <label style = "font-size: 20px; cursor: pointer;" class = "inline" for = "watery">Yes</label>
-            <input type = "radio" id = "watery" name = "group1" value = "yes" required>
-            <br>
-            <label style = "font-size: 20px; cursor: pointer;" class = "inline" for = "watern">No</label>
-            <input type = "radio" id = "watern" name = "group1" value = "no" required>
-        </fieldset>
-        <p style = "font-size: 25px;">Do You Have Food?</p>
-        <fieldset id = "group2">
-            <label style = "font-size: 20px; cursor: pointer;" class = "inline" for = "foody">Yes</label>
-            <input type = "radio" id = "foody" name = "group2" value = "yes" required>
-            <br>
-            <label style = "font-size: 20px; cursor: pointer;" class = "inline" for = "foodn">No</label>
-            <input type = "radio" id = "foodn" name = "group2" value = "no" required>
-        </fieldset>
-        <p style = "font-size: 25px;">Do You Have Electricity?</p>
-        <fieldset id = "group3">
-            <label style = "font-size: 20px; cursor: pointer;" class = "inline" for = "elecy">Yes</label>
-            <input type = "radio" id = "elecy" name = "group3" value = "yes" required>
-            <br>
-            <label style = "font-size: 20px; cursor: pointer;" class = "inline" for = "elecn">No</label>
-            <input type = "radio" id = "elecn" name = "group3" value = "no" required>
-        </fieldset>
-        <p style = "font-size: 25px;">Do You Have Shelter?</p>
-        <fieldset id = "group4">
-            <label style = "font-size: 20px; cursor: pointer;" class = "inline" for = "sheltery">Yes</label>
-            <input type = "radio" id = "sheltery" name = "group4" value = "yes" required>
-            <br>
-            <label style = "font-size: 20px; cursor: pointer;" class = "inline" for = "sheltern">No</label>
-            <input type = "radio" id = "sheltern" name = "group4" value = "no" required>
-        </fieldset>
-        <p style = "font-size: 25px;">Do You Have Toiletries?</p>
-        <fieldset id = "group5">
-            <label style = "font-size: 20px; cursor: pointer;" class = "inline" for = "tpy">Yes</label>
-            <input type = "radio" id = "tpy" name = "group5" value = "yes" required>
-            <br>
-            <label style = "font-size: 20px; cursor: pointer;" class = "inline" for = "tpn">No</label>
-            <input type = "radio" id = "tpn" name = "group5" value = "no" required>
-        </fieldset>
+        <div id='questions'>
+        <div class='radioGroup'>
+            <p style = "font-size: 25px;">Do You Have Water?</p>
+            <fieldset id = "group1">
+                <label style = "font-size: 20px; cursor: pointer;" class = "inline" for = "watery">Yes</label>
+                <input type = "radio" id = "watery" name = "group1" value = "yes" required>
+                <br>
+                <label style = "font-size: 20px; cursor: pointer;" class = "inline" for = "watern">No</label>
+                <input type = "radio" id = "watern" name = "group1" value = "no" required>
+            </fieldset>
+        </div>
+        <div class='radioGroup'>
+            <p style = "font-size: 25px;">Do You Have Food?</p>
+            <fieldset id = "group2">
+                <label style = "font-size: 20px; cursor: pointer;" class = "inline" for = "foody">Yes</label>
+                <input type = "radio" id = "foody" name = "group2" value = "yes" required>
+                <br>
+                <label style = "font-size: 20px; cursor: pointer;" class = "inline" for = "foodn">No</label>
+                <input type = "radio" id = "foodn" name = "group2" value = "no" required>
+            </fieldset>
+        </div>
+        <div class='radioGroup'>
+            <p style = "font-size: 25px;">Do You Have Electricity?</p>
+            <fieldset id = "group3">
+                <label style = "font-size: 20px; cursor: pointer;" class = "inline" for = "elecy">Yes</label>
+                <input type = "radio" id = "elecy" name = "group3" value = "yes" required>
+                <br>
+                <label style = "font-size: 20px; cursor: pointer;" class = "inline" for = "elecn">No</label>
+                <input type = "radio" id = "elecn" name = "group3" value = "no" required>
+            </fieldset>
+        </div>
+        <div class='radioGroup'>
+            <p style = "font-size: 25px;">Do You Have Shelter?</p>
+            <fieldset id = "group4">
+                <label style = "font-size: 20px; cursor: pointer;" class = "inline" for = "sheltery">Yes</label>
+                <input type = "radio" id = "sheltery" name = "group4" value = "yes" required>
+                <br>
+                <label style = "font-size: 20px; cursor: pointer;" class = "inline" for = "sheltern">No</label>
+                <input type = "radio" id = "sheltern" name = "group4" value = "no" required>
+            </fieldset>
+        </div>
+        <div class='radioGroup'>
+            <p style = "font-size: 25px;">Do You Have Toiletries?</p>
+            <fieldset id = "group5">
+                <label style = "font-size: 20px; cursor: pointer;" class = "inline" for = "tpy">Yes</label>
+                <input type = "radio" id = "tpy" name = "group5" value = "yes" required>
+                <br>
+                <label style = "font-size: 20px; cursor: pointer;" class = "inline" for = "tpn">No</label>
+                <input type = "radio" id = "tpn" name = "group5" value = "no" required>
+            </fieldset>
+        </div>
         <button style = "font-size: 20px;" type="submit">Submit</button>
+    </div>
+
     </form>
 </body>
 
