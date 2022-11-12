@@ -35,21 +35,22 @@ form {
     background-color: white;
 }
 
-.form-element{
+.form-element {
     display: flex;
     flex-direction: column;
     margin-bottom: 30px;
 }
 
-.form-element span{
+.form-element span {
     margin-bottom: 10px;
 }
 
-input, textarea {
+input,
+textarea {
     border: 1px solid
 }
 
-form button{
+form button {
     color: white;
     background: #023E7D;
     border-radius: 5px;
