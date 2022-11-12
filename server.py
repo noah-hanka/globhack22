@@ -21,7 +21,13 @@ def form():
 
 @app.route('/')
 def loginPage():
+    return render_template('landingpage.html')
+@app.route('/userlogin')
+def userLogin():
     return render_template('userlogin.html')
+@app.route('/adminlogin')
+def adminLogin():
+    return render_template('adminlogin.html')
 
 @app.route('/makeAccount',methods=["POST"])
 def makeAccount():
