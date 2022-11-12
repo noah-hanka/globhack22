@@ -99,6 +99,7 @@ def admin():
                         newDic = {fields[i]: row[i]
                                   for i in range(len(fields))}
                         people.append(newDic)
+                people = people[1:]
                 people.sort(reverse=True,key=personWeight)
                 n = len(people)
                 myCounts = getCounts(people)
