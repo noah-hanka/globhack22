@@ -71,8 +71,12 @@ form button {
 .radioGroup {
     margin: 0 .5rem 0 .5rem;
     width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 fieldset {
-    width: 100%;
+    width: 80%;
 }

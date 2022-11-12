@@ -5,7 +5,8 @@ import matplotlib.pyplot as plt
 import csv
 from csv import DictWriter
 app = Flask(__name__)
-
+import os
+THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
 # langing page
 
 
@@ -25,7 +26,8 @@ def userLogin():
 def form():
     email = request.form["email"]
     password = request.form["password"]
-    with open('./db/userCredentials.csv') as credentials:
+    credentialFile = os.path.join(THIS_FOLDER, './db/userCredentials.csv')
+    with open(credentialFile) as credentials:
         reader = csv.reader(credentials, delimiter=',')
         for row in reader:
             if email == row[0]:
@@ -55,7 +57,8 @@ def submitForm():
     row_app = {"email": email, "password": password, "street_address": address, "city": city, "state": state,
                "zipCode": zipCode, "water": water, "food": food, "electricity": elec, "shelter": shelter, "tp": tp}
 
-    with open('./db/formEntry.csv', 'r') as formR:
+    formEntryFile = os.path.join(THIS_FOLDER, './db/formEntry.csv')
+    with open(formEntryFile, 'r') as formR:
         lines = list()
         reader = csv.reader(formR, delimiter=",")
         rewrite = False
@@ -66,11 +69,11 @@ def submitForm():
                 rewrite = True
     if rewrite:
         # update row
-        with open('./db/formEntry.csv', 'w') as formW:
+        with open(formEntryFile, 'w') as formW:
             # formW.write(','.join(fields)+'\n')
             writer = csv.writer(formW)
             writer.writerows(lines)
-    with open('./db/formEntry.csv', 'a') as formW:
+    with open(formEntryFile, 'a') as formW:
         writer = DictWriter(formW, fieldnames=fields)
         writer.writerow(row_app)
     return render_template('complete.html', email=email, password=password)
@@ -86,14 +89,16 @@ def adminLogin():
 def admin():
     email = request.form["email"]
     password = request.form["password"]
-    with open('./db/adminCredentials.csv') as credentials:
+    adminCredentialFile = os.path.join(THIS_FOLDER, './db/adminCredentials.csv')
+    with open(adminCredentialFile) as credentials:
         reader = csv.reader(credentials, delimiter=',')
         for row in reader:
             if email == row[0] and password == row[1]:
                 people = []
                 fields = ["email", "password", "street_address", "city", "state",
                           "zipCode", "water", "food", "electricity", "shelter", "tp"]
-                with open('./db/formEntry.csv') as peopleFile:
+                formEntryFile = os.path.join(THIS_FOLDER, './db/formEntry.csv')
+                with open(formEntryFile) as peopleFile:
                     reader = csv.reader(peopleFile, delimiter=',')
                     for row in reader:
                         newDic = {fields[i]: row[i]
@@ -139,8 +144,8 @@ def makeAccount():
     # row to append to csv
     row_app = {'email': email, 'password': pw,
                'birthdate': bd, 'lic_no': licno, 'ssn': ssn}
-
-    with open('./db/userCredentials.csv', 'r+') as cred:
+    credentialFile = os.path.join(THIS_FOLDER, './db/userCredentials.csv')
+    with open(credentialFile, 'r+') as cred:
         csv_reader = csv.reader(cred, delimiter=",")
         csv_writer = DictWriter(cred, fieldnames=fields)
         for row in csv_reader:
