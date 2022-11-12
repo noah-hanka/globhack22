@@ -11,63 +11,59 @@
 
 
 <body>
-    <div class = "btn-block">
-        <form id = "form" method = "post" action = "/submitForm">
-            <h1>D.R.A.S. Relief Form</h1>
-            <h2>Basic Information</h2>
-            <input type="hidden" name="email" value={{email}}>
-            <input type="hidden" name="password" value={{password}}>
-            <label for = "address">Street Address:</label>
-            <input type = "text" id = "address" name = "address" required>
-            <label for = "city">City Name:</label>
-            <input type = "text" id = "city" name = "city" required>
-            <label for = "state">State:</label>
-            <input type = "text" id = "state" name = "state" required>
-            <label for = "zipcode">Zip Code:</label>
-            <input type = "text" id = "zipcode" name = "zipcode" required>
-            <h2>Resource Information</h2>
-            <p>Do You Need Water?</p>
-            <fieldset id = "group1">
-                <input type = "radio" id = "watery" name = "group1"; value = "watery">
-                <label class = "inline" for = "watery">Yes</label>
-                <br>
-                <input type = "radio" id = "watern" name = "group1"; value = "watern">
-                <label class = "inline" for = "watern">No</label>
-            </fieldset>
-            <p style>Do You Need Food?</p>
-            <fieldset id = "group2">
-                <input type = "radio" id = "foody" name = "group2"; value = "foody">
-                <label class = "inline" for = "foody">Yes</label>
-                <br>
-                <input type = "radio" id = "foodn" name = "group2"; value = "foodn">
-                <label class = "inline" for = "foodn">No</label>
-            </fieldset>
-            <p>Do You Have Electricity?</p>
-            <fieldset id = "group3">
-                <input type = "radio" id = "electricityy" name = "group3"; value = "electricityy">
-                <label class = "inline" for = "electricityy">Yes</label>
-                <br>
-                <input type = "radio" id = "electricityn" name = "group3"; value = "electricityn">
-                <label class = "inline" for = "electricityn">No</label>
-            </fieldset>
-            <p>Do You Have Shelter?</p>
-            <fieldset id = "group4">
-                <input type = "radio" id = "sheltery" name = "group4"; value = "sheltery">
-                <label class = "inline" for = "sheltery">Yes</label>
-                <br>
-                <input type = "radio" id = "sheltern" name = "group4"; value = "sheltern">
-                <label class = "inline" for = "sheltern">No</label>
-            </fieldset>
-            <p>Do You Have Toilet Paper?</p>
-            <fieldset id = "group5">
-                <input type = "radio" id = "tpy" name = "group5"; value = "tpy">
-                <label class = "inline" for = "tpy">Yes</label>
-                <br>
-                <input type = "radio" id = "tpn" name = "group5"; value = "tpn">
-                <label class = "inline" for = "tpn">No</label>
-            </fieldset>
-            <input type="submit" value="Submit" id="form-submit">
-        </form> -->
-    </div>
+    <form id = "form" method = "post" action = "/submitForm">
+        <h1 style = "font-size: 50px;">D.R.A.S. Relief Form</h1>
+        <h2 style = "font-size: 33px;">Basic Information</h2>
+        <label style = "font-size: 25px;" for = "address">Street Address:</label>
+        <input type = "text" id = "address" name = "address" style = "width: 550px; margin-bottom: 10px; margin-top: 5px; font-size: 20px; height: 30px;" required>
+        <label style = "font-size: 25px;" for = "city">City Name:</label>
+        <input type = "text" id = "city" name = "city" style = "width: 550px; margin-bottom: 10px; margin-top: 5px; font-size: 20px; height: 30px;" required>
+        <label style = "font-size: 25px;" for = "state">State:</label>
+        <input type = "text" id = "state" name = "state" style = "width: 550px; margin-bottom: 10px; margin-top: 5px; font-size: 20px; height: 30px;" required>
+        <label style = "font-size: 25px;" for = "zipcode">Zip Code:</label>
+        <input type = "text" id = "zipcode" name = "zipcode" style = "width: 550px; margin-top: 5px; font-size: 20px; height: 30px;" required>
+        <h2 style = "font-size: 33px;">Resource Information</h2>
+        <p style = "font-size: 25px;">Do You Have Water?</p>
+        <fieldset id = "group1">
+            <label style = "font-size: 20px;" class = "inline" for = "watery">Yes</label>
+            <input type = "radio" id = "watery" name = "group1" value = "watery" required>
+            <br>
+            <label style = "font-size: 20px;" class = "inline" for = "watern">No</label>
+            <input type = "radio" id = "watern" name = "group1" value = "watern" required>
+        </fieldset>
+        <p style = "font-size: 25px;">Do You Have Food?</p>
+        <fieldset id = "group2">
+            <label style = "font-size: 20px;" class = "inline" for = "foody">Yes</label>
+            <input type = "radio" id = "foody" name = "group2" value = "foody" required>
+            <br>
+            <label style = "font-size: 20px;" class = "inline" for = "foodn">No</label>
+            <input type = "radio" id = "foodn" name = "group2" value = "foodn" required>
+        </fieldset>
+        <p style = "font-size: 25px;">Do You Have Electricity?</p>
+        <fieldset id = "group3">
+            <label style = "font-size: 20px;" class = "inline" for = "electricityy">Yes</label>
+            <input type = "radio" id = "electricityy" name = "group3" value = "electricityy" required>
+            <br>
+            <label style = "font-size: 20px;" class = "inline" for = "electricityn">No</label>
+            <input type = "radio" id = "electricityn" name = "group3" value = "electricityn" required>
+        </fieldset>
+        <p style = "font-size: 25px;">Do You Have Shelter?</p>
+        <fieldset id = "group4">
+            <label style = "font-size: 20px;" class = "inline" for = "sheltery">Yes</label>
+            <input type = "radio" id = "sheltery" name = "group4" value = "sheltery" required>
+            <br>
+            <label style = "font-size: 20px;" class = "inline" for = "sheltern">No</label>
+            <input type = "radio" id = "sheltern" name = "group4" value = "sheltern" required>
+        </fieldset>
+        <p style = "font-size: 25px;">Do You Have Toiletries?</p>
+        <fieldset id = "group5">
+            <label style = "font-size: 20px;" class = "inline" for = "tpy">Yes</label>
+            <input type = "radio" id = "tpy" name = "group5" value = "tpy" required>
+            <br>
+            <label style = "font-size: 20px;" class = "inline" for = "tpn">No</label>
+            <input type = "radio" id = "tpn" name = "group5" value = "tpn" required>
+        </fieldset>
+        <button style = "font-size: 20px;" type="submit">Submit</button>
+    </form>
 </body>
 
