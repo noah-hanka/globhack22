@@ -61,11 +61,11 @@ def makeAccount():
     # row to append to csv
     row_app = {'email':email, 'password':pw, 'birthdate':bd, 'lic_no':licno, 'ssn':ssn} 
 
-    with open('./db/userCredentials.csv', 'a+') as cred:
+    with open('./db/userCredentials.csv', 'r+') as cred:
         csv_reader = csv.reader(cred, delimiter=",")
         for row in csv_reader:
             print(row[0])
-            if email in row[0]:
+            if email == row[0]:
                 # redirect to invalid login
                 return render_template("createAccount.html",invalidLogin=True)
         csv_writer = DictWriter(cred, fieldnames=fields)
