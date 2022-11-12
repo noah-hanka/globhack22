@@ -1,2 +1,8 @@
+<<<<<<< HEAD
 email,password,street_address,city,state,zipCode,water,food,electricity,shelter,tp
 a,b,123 Uconn Ave,storrs,CT,6268,yes,yes,yes,yes,yes
+=======
+email,password,street_address,city,state,zipCode,water,food,electricity,shelter,tp
+a,b,225 Mulberry Road,Mansfield Center,CT,06250,no,no,no,yes,no
+ingridhanka@hotmail.com,ingrid,225 Mulberry Road,Mansfield Center,CT,06250,no,no,no,no,no
+>>>>>>> 3f15e91ac6a7c8e645be1cc727599cbc1b03c1eb

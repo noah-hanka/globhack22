@@ -1,5 +1,11 @@
 body {
+    height: 100%;
+    background: gray;
     color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 center {
@@ -23,6 +29,33 @@ label {
 }
 
 form {
-    margin: 0 auto;
-    width: 250px;
+    padding: 60px;
+    width: 550px;
+    max-width: calc(100% - 60px);
+    background-color: white;
+}
+
+.form-element {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+
+.form-element span {
+    margin-bottom: 10px;
+}
+
+input,
+textarea {
+    border: 1px solid
+}
+
+form button {
+    color: white;
+    background: #023E7D;
+    border-radius: 5px;
+    border: none;
+    width: 550px;
+    height: 30px;
+    margin-top: 25px;
 }

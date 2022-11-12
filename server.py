@@ -1,8 +1,9 @@
 from flask import Flask, render_template, redirect, url_for, request
+import matplotlib as plt
 import csv
 from csv import DictWriter
-import matplotlib.pyplot as plt
-
+from tempfile import NamedTemporaryFile
+import shutil
 app = Flask(__name__)
 
 # langing page
@@ -37,10 +38,8 @@ def form():
 
 @app.route('/submitForm', methods=["POST"])
 def submitForm():
-
     email = request.form["email"]
     password = request.form["password"]
-
     address = request.form["address"]
     city = request.form["city"]
     state = request.form["state"]
@@ -56,18 +55,28 @@ def submitForm():
     row_app = {"email": email, "password": password, "street_address": address, "city": city, "state": state,
                "zipCode": zipCode, "water": water, "food": food, "electricity": elec, "shelter": shelter, "tp": tp}
 
-    with open('./db/formEntry.csv', 'r+') as form:
-        csv_reader = csv.reader(form, delimiter=",")
-        for row in csv_reader:
-            if email == row[0]:
-                # update row
-                pass
-        csv_writer = DictWriter(form, fieldnames=fields)
-        csv_writer.writerow(row_app)
+    with open('./db/formEntry.csv', 'r') as formR:
+        lines = list()
+        reader = csv.reader(formR, delimiter=",")
+        rewrite = False
+        for row in reader:
+            if email != row[0]:
+                lines.append(row)
+            else:
+                rewrite = True
+    if rewrite:
+        # update row
+        with open('./db/formEntry.csv', 'w') as formW:
+            # formW.write(','.join(fields)+'\n')
+            writer = csv.writer(formW)
+            writer.writerows(lines)
+    with open('./db/formEntry.csv', 'a') as formW:
+        writer = DictWriter(formW, fieldnames=fields)
+        writer.writerow(row_app)
+    return render_template('landingpage.html')
+
 
 # administrator login routing
-
-
 @app.route('/adminlogin')
 def adminLogin():
     return render_template('adminlogin.html')
@@ -91,7 +100,6 @@ def admin():
                                   for i in range(len(fields))}
                         people.append(newDic)
                 n = len(people)
-
                 myCounts = getCounts(people)
                 makeGraph(myCounts)
                 return render_template('admin.html', email=email, password=password, people=people, count=n)
@@ -119,11 +127,11 @@ def makeAccount():
 
     with open('./db/userCredentials.csv', 'r+') as cred:
         csv_reader = csv.reader(cred, delimiter=",")
+        csv_writer = DictWriter(cred, fieldnames=fields)
         for row in csv_reader:
             if email == row[0]:
                 # redirect to invalid login
                 return render_template("createAccount.html", invalidLogin=True)
-        csv_writer = DictWriter(cred, fieldnames=fields)
         csv_writer.writerow(row_app)
         return render_template("form.html", email=email, password=pw)
 
@@ -160,4 +168,3 @@ def makeGraph(actualCount):
     plt.xticks(x_pos, topics)
 
     plt.savefig("./static/output.jpg")
-    return
