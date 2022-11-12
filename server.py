@@ -25,7 +25,7 @@ def loginPage():
 @app.route('/userlogin')
 def userLogin():
     return render_template('userlogin.html')
-@pp.route('/adminlogin')
+@app.route('/adminlogin')
 def adminLogin():
     return render_template('adminlogin.html')
 
