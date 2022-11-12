@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,9 +9,10 @@
     <link rel="stylesheet" href="static/base.css">
     <link rel="stylesheet" href="static/admin.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <div id="mainpage">
         <header>
@@ -23,11 +25,12 @@
         </header>
         <div id='mainContainer'>
             <div id="peoplebox">
-            <h1>Citizen Listing</h1>
-            {% for i in range(count) %}
+                <h1>Citizen Listing</h1>
+                {% for i in range(count) %}
                 <div class="person">
                     <div class='location'>
-                        {{people[i]["street_address"]}}, {{people[i]["city"]}}, {{people[i]["state"]}}, {{people[i]["zipCode"]}}
+                        {{people[i]["street_address"]}}, {{people[i]["city"]}}, {{people[i]["state"]}},
+                        {{people[i]["zipCode"]}}
                     </div>
                     {% if people[i]["weight"] >= 10 %}
                     <div class="needs" style="background-color:red;">
@@ -39,7 +42,7 @@
                         <div class='parameter'>Shelter: {{people[i]["shelter"]}}</div>
                     </div>
                     {% endif %}
-                    {% if 10 > people[i]["weight"] >= 5  %}
+                    {% if 10 > people[i]["weight"] >= 5 %}
                     <div class="needs" style="background-color:yellow;">
                         <div class="parameter">Priority Level: {{people[i]['weight']}}</div>
                         <div class='parameter'>Water: {{people[i]['water']}}</div>
@@ -49,25 +52,26 @@
                         <div class='parameter'>Shelter: {{people[i]["shelter"]}}</div>
                     </div>
                     {% endif %}
-                    {% if people[i]["weight"] < 5%}
-                    <div class="needs" style="background-color:green;">
+                    {% if people[i]["weight"] < 5%} <div class="needs" style="background-color:green;">
                         <div class="parameter">Priority Level: {{people[i]['weight']}}</div>
                         <div class='parameter'>Water: {{people[i]['water']}}</div>
                         <div class='parameter'>Food: {{people[i]["food"]}}</div>
                         <div class='parameter'>Electricity: {{people[i]["electricity"]}}</div>
                         <div class='parameter'>Toiletries: {{people[i]["tp"]}}</div>
                         <div class='parameter'>Shelter: {{people[i]["shelter"]}}</div>
-                    </div>   
-                    {% endif %}
                 </div>
+                {% endif %}
+            </div>
             {% endfor %}
-            </div>
-            <div id="graphs">
-                <h1>Overall Metrics</h1>
-                <img src="static/output.jpg" alt="">
-            </div>
         </div>
+        <div id="graphs">
+            <h1>Overall Metrics</h1>
+            <img src="static/output.jpg" alt="">
+            <img src="static/output2.jpg" alt="">
+        </div>
+    </div>
 
     </div>
 </body>
+
 </html>

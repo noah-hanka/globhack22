@@ -116,6 +116,10 @@ def admin():
                 n = len(people)
                 myCounts = getCounts(people)
                 makeGraph(myCounts)
+
+                myDic = getCities(people)
+                makePie(myDic)
+
                 return render_template('admin.html', email=email, password=password, people=people, count=n)
     return render_template('adminlogin.html', invalidLogin=True)
 
@@ -218,4 +222,17 @@ def getCities(somePeople):
 
 
 def makePie(citiesDic):
-    return
+
+    myKeys = list(citiesDic.keys())
+    totals = list(citiesDic.values())
+
+    fig1, ax1 = plt.subplots()
+    ax1.pie(totals, labels=myKeys, autopct='%1.1f%%',
+            startangle=90)
+    # Equal aspect ratio ensures that pie is drawn as a circle.
+    ax1.axis('equal')
+
+    plt.title("Requests by City")
+
+    outputFile2 = os.path.join(THIS_FOLDER, './static/output2.jpg')
+    plt.savefig(outputFile2)
