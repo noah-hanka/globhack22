@@ -233,4 +233,4 @@ def makePie(citiesDic):
     ax1.axis('equal')
 
     outputFile2 = os.path.join(THIS_FOLDER, './static/output2.jpg')
-    plt.savefig(outputFile2)
+    fig1.savefig(outputFile2)
