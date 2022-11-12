@@ -18,31 +18,44 @@
             Error: An account already exists under that email
         </div>
         {% endif %}
-        <form id="login-form" method="post" action="/makeAccount">
+        <form id="login-form" method="post" action="/makeAccount" autocomplete="off">
 
-            <label for="email-field"> Email:</label>
-            <input type="text" name="email" id="email-field" class="login-form-field" placeholder="Email" required>
+            <div class="input-div">
+                <label for="email-field"> Email:</label>
+                <input type="text" name="email" id="email-field" class="login-form-field" placeholder="Email" required>
+            </div>
 
-            <label for="password-field"> Password:</label>
-            <input type="password" name="password" id="password-field" class="login-form-field" placeholder="Password"
-                required>
+            <div class="input-div">
+                <label for="password-field"> Password:</label>
+                <input type="password" name="password" id="password-field" class="login-form-field"
+                    placeholder="Password" required>
+            </div>
 
-            <label for="birthdate"> Birthdate: </label>
-            <input type="date" name="birthdate" id="birthdate" class="login-form-field" placeholder="" required>
+            <div class="input-div">
+                <label for="birthdate"> Birthdate: </label>
+                <input type="date" name="birthdate" id="birthdate" class="login-form-field" placeholder="" required>
+            </div>
 
-            <label for="license-number"> License Number:</label>
-            <input type="password" name="license number" id="license-number" class="login-form-field" placeholder="123">
+            <div class="input-div">
+                <label for="license-number"> License Number:</label>
+                <input type="password" name="license number" id="license-number" class="login-form-field"
+                    placeholder="123" required>
+            </div>
 
-            <label for="ssn"> Social Security Number:</label>
-            <input type="password" name="social security number" id="ssn" class="login-form-field"
-                placeholder="xxx-xx-xxxx">
+            <div class="input-div">
+
+                <label for="ssn"> Social Security Number:</label>
+                <input type="password" name="social security number" id="ssn" class="login-form-field"
+                    placeholder="xxx-xx-xxxx" required>
+
+            </div>
 
 
-            <label for="create-form-submit"> Create Account:</label>
+            <!-- <label for="create-form-submit"> Create Account:</label> -->
             <input type="submit" value="Create Account" id="create-form-submit">
 
         </form>
-        <!-- hey -->
+
 
     </main>
 </body>

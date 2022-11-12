@@ -9,7 +9,10 @@ body {
     display: grid;
     justify-items: center;
     align-items: center;
-    background-color: #3a3a3a;
+    background-color: #979DAC;
+    background-image: url("login.webp");
+    background-size: cover;
+    color: white;
 }
 
 #main-holder {
@@ -18,9 +21,11 @@ body {
     display: grid;
     justify-items: center;
     align-items: center;
-    background-color: white;
+    background-color: #002855;
     border-radius: 7px;
-    box-shadow: 0px 0px 5px 2px black;
+    border: none;
+
+    background-color: rgba(0, 0, 0, .4);
 }
 
 
@@ -51,7 +56,7 @@ body {
     border-radius: 5px;
     color: white;
     font-weight: bold;
-    background-color: #3a3a3a;
+    background-color: #023E7D;
     cursor: pointer;
     outline: none;
 }
@@ -61,7 +66,7 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     width: 100%;
     margin-bottom: 10px;
     padding: 0px 0px 5px 5px;
