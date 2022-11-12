@@ -21,14 +21,20 @@ def form():
 
 @app.route('/')
 def loginPage():
+    return render_template('landingpage.html')
+@app.route('/userlogin')
+def userLogin():
     return render_template('userlogin.html')
+@app.route('/adminlogin')
+def adminLogin():
+    return render_template('adminlogin.html')
 
 @app.route('/makeAccount',methods=["POST"])
 def makeAccount():
     user = request.form["username"]
     pw = request.form["pw"]
 
-    fields = ['email', 'user']
+    fields = ['email', 'password']
     row_app = {'email':user, 'password':pw} # row to append to csv
 
     with open('./db/userCredentials.csv', 'a') as cred:
