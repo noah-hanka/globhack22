@@ -1,2 +1,3 @@
 email,password,street_address,city,state,zipCode,water,food,electricity,shelter,tp
-a,b,123 Uconn Ave,storrs,CT,6268,yes,yes,yes,yes,yes
+email,password,street_address,city,state,zipCode,water,food,electricity,shelter,tp
+a,b,225 Mulberry Road,Mansfield Center,CT,06250,watern,foody,electricityy,sheltern,tpy
