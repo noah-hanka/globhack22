@@ -29,7 +29,6 @@ def form():
     return render_template('userlogin.html',invalidLogin = True)
 @app.route('/submitForm', methods=["POST"])
 def submitForm():
-    
     email = request.form["email"]
     password = request.form["password"]
     address = request.form["address"]
@@ -57,13 +56,13 @@ def submitForm():
     if rewrite:
         # update row
         with open('./db/formEntry.csv', 'w') as formW:
-            formW.write(','.join(fields)+'\n')
+            # formW.write(','.join(fields)+'\n')
             writer = csv.writer(formW)
             writer.writerows(lines)
     with open('./db/formEntry.csv','a') as formW:
         writer = DictWriter(formW,fieldnames=fields)
         writer.writerow(row_app)
-        
+    return render_template('landingpage.html')
                     
     
 
@@ -77,17 +76,23 @@ def admin():
     email = request.form["email"]
     password = request.form["password"]
     with open('./db/adminCredentials.csv') as credentials:
-        reader = csv.reader(credentials,delimiter=',')
+        reader = csv.reader(credentials, delimiter=',')
         for row in reader:
             if email == row[0] and password == row[1]:
                 people = []
-                with open('formEntry.csv') as peopleFile:
-                    reader = csv.reader(peopleFile,delimiter=',')
+                fields = ["email", "password", "street_address", "city", "state",
+                          "zipCode", "water", "food", "electricity", "shelter", "tp"]
+                with open('./db/formEntry.csv') as peopleFile:
+                    reader = csv.reader(peopleFile, delimiter=',')
                     for row in reader:
-                        people.append(row)
+                        newDic = {fields[i]: row[i]
+                                  for i in range(len(fields))}
+                        people.append(newDic)
                 n = len(people)
-                return render_template('admin.html',email = email, password = password, people = people, count = n)
-    return render_template('adminlogin.html',invalidLogin = True)
+                myCounts = getCounts(people)
+                makeGraph(myCounts)
+                return render_template('admin.html', email=email, password=password, people=people, count=n)
+    return render_template('adminlogin.html', invalidLogin=True)
 
 
 # creating account routing
