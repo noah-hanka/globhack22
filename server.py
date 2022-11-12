@@ -38,13 +38,12 @@ def adminLogin():
 def admin():
     email = request.form["email"]
     password = request.form["password"]
-    print(email)
-    print(password)
     with open('./db/adminCredentials.csv') as credentials:
         reader = csv.reader(credentials,delimiter=',')
         for row in reader:
             if email == row[0] and password == row[1]:
-                return render_template('admin.html',email = email, password = password)
+                people = []
+                return render_template('admin.html',email = email, password = password, people = people)
     return render_template('adminlogin.html',invalidLogin = True)
 
 
