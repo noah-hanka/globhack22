@@ -227,11 +227,15 @@ def makePie(citiesDic):
     myKeys = list(citiesDic.keys())
     totals = list(citiesDic.values())
 
-    fig1, ax1 = plt.subplots()
-    ax1.pie(totals, labels=myKeys, autopct='%1.1f%%',
-            startangle=90)
-    # Equal aspect ratio ensures that pie is drawn as a circle.
-    ax1.axis('equal')
+    x_pos = [i for i, _ in enumerate(myKeys)]
 
+    plt.bar(x_pos, totals, color='blue')
+    plt.xlabel("Resource")
+    plt.ylabel("Total Requests")
+    plt.xticks(x_pos, myKeys)
+
+    yint = range(min(totals), math.ceil(max(totals))+1)
+
+    matplotlib.pyplot.yticks(yint)
     outputFile2 = os.path.join(THIS_FOLDER, './static/output2.jpg')
-    fig1.savefig(outputFile2)
+    plt.savefig(outputFile2)
