@@ -27,7 +27,32 @@ def form():
     return render_template('userlogin.html',invalidLogin = True)
 @app.route('/submitForm', methods=["POST"])
 def submitForm():
-    pass
+    
+    email = request.form["email"]
+    password = request.form["password"]
+
+    address = request.form["address"]
+    city = request.form["city"]
+    state = request.form["state"]
+    zipCode = request.form["zipcode"]
+    water = request.form["group1"]
+    food = request.form["group2"]
+    elec = request.form["group3"]
+    shelter = request.form["group4"]
+    tp = request.form["group5"]
+
+    fields = ["email", "password", "street_address", "city", "state", "zipCode", "water", "food", "electricity", "shelter", "tp"]
+    row_app = {"email":email, "password":password, "street_address":address, "city":city, "state":state, "zipCode":zipCode, "water":water, "food":food, "electricity":elec, "shelter":shelter, "tp":tp}
+
+    with open('./db/formEntry.csv', 'r+') as form:
+        csv_reader = csv.reader(form, delimiter=",")
+        for row in csv_reader:
+            print(row[0])
+            if email == row[0]:
+                # update row
+                pass
+        csv_writer = DictWriter(form, fieldnames=fields)
+        csv_writer.writerow(row_app)
 
 # administrator login routing
 @app.route('/adminlogin')
@@ -43,10 +68,9 @@ def admin():
         for row in reader:
             if email == row[0] and password == row[1]:
                 people = []
-                with open('./db/formEntry.csv') as peopleFile:
-                    reader = csv.reader(peopleFile,delimiter=',')
+                with open('formEntry.csv') as peopleFile:
+                    reader = csv.reader(credentials,delimiter=',')
                     for row in reader:
-                        print(row)
                         people.append(row)
                 n = len(people)
                 return render_template('admin.html',email = email, password = password, people = people, count = n)
