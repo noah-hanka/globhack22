@@ -47,7 +47,6 @@ def submitForm():
     with open('./db/formEntry.csv', 'r+') as form:
         csv_reader = csv.reader(form, delimiter=",")
         for row in csv_reader:
-            print(row[0])
             if email == row[0]:
                 # update row
                 pass
@@ -69,12 +68,11 @@ def admin():
             if email == row[0] and password == row[1]:
                 people = []
                 fields = ["email","password","street_address","city","state","zipCode","water","food","electricity","shelter","tp"]
-                with open('formEntry.csv') as peopleFile:
-                    reader = csv.reader(credentials,delimiter=',')
+                with open('./db/formEntry.csv') as peopleFile:
+                    reader = csv.reader(peopleFile,delimiter=',')
                     for row in reader:
                         newDic = {fields[i]:row[i] for i in range(len(fields))}
                         people.append(newDic)
-                print(people)
                 n = len(people)
                 return render_template('admin.html',email = email, password = password, people = people, count = n)
     return render_template('adminlogin.html',invalidLogin = True)
@@ -99,7 +97,6 @@ def makeAccount():
     with open('./db/userCredentials.csv', 'r+') as cred:
         csv_reader = csv.reader(cred, delimiter=",")
         for row in csv_reader:
-            print(row[0])
             if email == row[0]:
                 # redirect to invalid login
                 return render_template("createAccount.html",invalidLogin=True)
