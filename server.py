@@ -1,6 +1,8 @@
 from flask import Flask, render_template, redirect, url_for, request
 import csv
 from csv import DictWriter
+from tempfile import NamedTemporaryFile
+import shutil
 app = Flask(__name__)
 
 # langing page
@@ -30,7 +32,6 @@ def submitForm():
     
     email = request.form["email"]
     password = request.form["password"]
-
     address = request.form["address"]
     city = request.form["city"]
     state = request.form["state"]
@@ -44,13 +45,20 @@ def submitForm():
     fields = ["email", "password", "street_address", "city", "state", "zipCode", "water", "food", "electricity", "shelter", "tp"]
     row_app = {"email":email, "password":password, "street_address":address, "city":city, "state":state, "zipCode":zipCode, "water":water, "food":food, "electricity":elec, "shelter":shelter, "tp":tp}
 
-    with open('./db/formEntry.csv', 'r+') as form:
-        csv_reader = csv.reader(form, delimiter=",")
+    with open('./db/formEntry.csv', 'r+') as form, tempfile:
+        tempfile = NamedTemporaryFile(mode='w', delete=False)
+        temp_reader = csv.DictReader(form, fieldnames=fields)
+        temp_writer = csv.DictWriter(tempfile, fieldnames=fields)
+        
+        csv_reader = csv.DictReader(form, delimiter=",")
+        csv_writer = DictWriter(form, fieldnames=fields)
+
         for row in csv_reader:
             if email == row[0]:
                 # update row
-                pass
-        csv_writer = DictWriter(form, fieldnames=fields)
+                row = {"email":row["email"], "password":row["password"], "street_address":row["street_address"],"city":row["city"], "state":row["state"], "zipCode":row["zipCode"], "water":row["water"], "food":row["food"], "electricity":row["electricity"], shelter:row["shelter"], "tp":row["tp"] }
+                temp_writer.writerow(row)
+                shutil.move(tempfile, form)
         csv_writer.writerow(row_app)
 
 # administrator login routing
@@ -67,12 +75,10 @@ def admin():
         for row in reader:
             if email == row[0] and password == row[1]:
                 people = []
-                fields = ["email","password","street_address","city","state","zipCode","water","food","electricity","shelter","tp"]
-                with open('./db/formEntry.csv') as peopleFile:
-                    reader = csv.reader(peopleFile,delimiter=',')
+                with open('formEntry.csv') as peopleFile:
+                    reader = csv.reader(credentials,delimiter=',')
                     for row in reader:
-                        newDic = {fields[i]:row[i] for i in range(len(fields))}
-                        people.append(newDic)
+                        people.append(row)
                 n = len(people)
                 return render_template('admin.html',email = email, password = password, people = people, count = n)
     return render_template('adminlogin.html',invalidLogin = True)
