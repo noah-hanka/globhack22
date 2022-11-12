@@ -48,7 +48,7 @@ button {
 #peoplebox {
     display: flex;
     justify-content: flex-start;
-    align-items: flex-start;
+    align-items: center;
     flex-direction: column;
     width: 60%;
     border-radius: 1rem;

@@ -108,14 +108,18 @@ def admin():
                                   for i in range(len(fields))}
                         people.append(newDic)
                 people = people[1:]
-                people.sort(reverse=True, key=personWeight)
+                for person in people:
+                    person["weight"] = personWeight(person)
+                
+                people.sort(reverse=True, key=weightDic)
                 n = len(people)
                 myCounts = getCounts(people)
                 makeGraph(myCounts)
                 return render_template('admin.html', email=email, password=password, people=people, count=n)
     return render_template('adminlogin.html', invalidLogin=True)
 
-
+def weightDic(person):
+    return person["weight"]
 def personWeight(person):
     total = 0
     if person['water'] == 'yes':
