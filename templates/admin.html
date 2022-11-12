@@ -29,7 +29,8 @@
                     <div class='location'>
                         {{people[i]["street_address"]}}, {{people[i]["city"]}}, {{people[i]["state"]}}, {{people[i]["zipCode"]}}
                     </div>
-                    <div class="needs">
+                    {% if people[i]["weight"] >= 10 %}
+                    <div class="needs" style="background-color:red;">
                         <div class="parameter">Priority Level: {{people[i]['weight']}}</div>
                         <div class='parameter'>Water: {{people[i]['water']}}</div>
                         <div class='parameter'>Food: {{people[i]["food"]}}</div>
@@ -37,6 +38,27 @@
                         <div class='parameter'>Toiletries: {{people[i]["tp"]}}</div>
                         <div class='parameter'>Shelter: {{people[i]["shelter"]}}</div>
                     </div>
+                    {% endif %}
+                    {% if 10 > people[i]["weight"] >= 5  %}
+                    <div class="needs" style="background-color:yellow;">
+                        <div class="parameter">Priority Level: {{people[i]['weight']}}</div>
+                        <div class='parameter'>Water: {{people[i]['water']}}</div>
+                        <div class='parameter'>Food: {{people[i]["food"]}}</div>
+                        <div class='parameter'>Electricity: {{people[i]["electricity"]}}</div>
+                        <div class='parameter'>Toiletries: {{people[i]["tp"]}}</div>
+                        <div class='parameter'>Shelter: {{people[i]["shelter"]}}</div>
+                    </div>
+                    {% endif %}
+                    {% if people[i]["weight"] < 5%}
+                    <div class="needs" style="background-color:green;">
+                        <div class="parameter">Priority Level: {{people[i]['weight']}}</div>
+                        <div class='parameter'>Water: {{people[i]['water']}}</div>
+                        <div class='parameter'>Food: {{people[i]["food"]}}</div>
+                        <div class='parameter'>Electricity: {{people[i]["electricity"]}}</div>
+                        <div class='parameter'>Toiletries: {{people[i]["tp"]}}</div>
+                        <div class='parameter'>Shelter: {{people[i]["shelter"]}}</div>
+                    </div>   
+                    {% endif %}
                 </div>
             {% endfor %}
             </div>
