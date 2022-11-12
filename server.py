@@ -1,3 +1,4 @@
+import os
 from matplotlib.ticker import MaxNLocator
 from matplotlib.figure import Figure
 from csv import DictWriter
@@ -8,7 +9,6 @@ import matplotlib
 import math
 matplotlib.use('Agg')
 app = Flask(__name__)
-import os
 THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
 # langing page
 
@@ -92,7 +92,8 @@ def adminLogin():
 def admin():
     email = request.form["email"]
     password = request.form["password"]
-    adminCredentialFile = os.path.join(THIS_FOLDER, './db/adminCredentials.csv')
+    adminCredentialFile = os.path.join(
+        THIS_FOLDER, './db/adminCredentials.csv')
     with open(adminCredentialFile) as credentials:
         reader = csv.reader(credentials, delimiter=',')
         for row in reader:
@@ -110,7 +111,7 @@ def admin():
                 people = people[1:]
                 for person in people:
                     person["weight"] = personWeight(person)
-                
+
                 people.sort(reverse=True, key=weightDic)
                 n = len(people)
                 myCounts = getCounts(people)
@@ -118,8 +119,11 @@ def admin():
                 return render_template('admin.html', email=email, password=password, people=people, count=n)
     return render_template('adminlogin.html', invalidLogin=True)
 
+
 def weightDic(person):
     return person["weight"]
+
+
 def personWeight(person):
     total = 0
     if person['water'] == 'yes':
@@ -198,3 +202,20 @@ def makeGraph(actualCount):
     matplotlib.pyplot.yticks(yint)
     outputFile = os.path.join(THIS_FOLDER, './static/output.jpg')
     plt.savefig(outputFile)
+
+
+def getCities(somePeople):
+    cities = {}
+    for person in somePeople:
+        tempCity = person['city']
+        curCity = tempCity.capitalize()
+        if curCity in cities:
+            cities[curCity] += 1
+        else:
+            cities[curCity] = 1
+
+    return cities
+
+
+def makePie(citiesDic):
+    return
