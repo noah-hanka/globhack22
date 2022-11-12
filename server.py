@@ -68,10 +68,13 @@ def admin():
         for row in reader:
             if email == row[0] and password == row[1]:
                 people = []
+                fields = ["email","password","street_address","city","state","zipCode","water","food","electricity","shelter","tp"]
                 with open('formEntry.csv') as peopleFile:
                     reader = csv.reader(credentials,delimiter=',')
                     for row in reader:
-                        people.append(row)
+                        newDic = {fields[i]:row[i] for i in range(len(fields))}
+                        people.append(newDic)
+                print(people)
                 n = len(people)
                 return render_template('admin.html',email = email, password = password, people = people, count = n)
     return render_template('adminlogin.html',invalidLogin = True)
