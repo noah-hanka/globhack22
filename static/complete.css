@@ -1,0 +1,46 @@
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    background-color: #979DAC;
+    background-image: url("login.webp");
+    background-size: cover;
+    color: white;
+}
+
+#main-holder {
+    width: 50%;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color: #002855;
+    border-radius: 7px;
+    border: none;
+    padding: 2rem;
+    background-color: rgba(0, 0, 0, .4);
+    text-align: center;
+    font-size: x-large;
+}
+
+#login-form-submit {
+    width: 150px;
+    height: 75px;
+    padding: 7px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    background-color: #023E7D;
+    cursor: pointer;
+    outline: none;
+    font-size: large;
+}

@@ -12,8 +12,6 @@ def landingPage():
     return render_template('landingpage.html')
 
 # general user login routing
-
-
 @app.route('/userlogin')
 def userLogin():
     return render_template('userlogin.html')
@@ -32,7 +30,6 @@ def form():
                 else:
                     break
     return render_template('userlogin.html', invalidLogin=True)
-
 
 @app.route('/submitForm', methods=["POST"])
 def submitForm():
@@ -71,7 +68,7 @@ def submitForm():
     with open('./db/formEntry.csv', 'a') as formW:
         writer = DictWriter(formW, fieldnames=fields)
         writer.writerow(row_app)
-    return render_template('landingpage.html')
+    return render_template('complete.html', email=email, password=password)
 
 
 # administrator login routing
