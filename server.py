@@ -25,6 +25,9 @@ def form():
                 else:
                     break
     return render_template('userlogin.html',invalidLogin = True)
+@app.route('/submitForm', methods=["POST"])
+def submitForm():
+    pass
 
 # administrator login routing
 @app.route('/adminlogin')
@@ -71,3 +74,4 @@ def makeAccount():
         csv_writer = DictWriter(cred, fieldnames=fields)
         csv_writer.writerow(row_app)
         return render_template("form.html",email=email,password=pw)
+
