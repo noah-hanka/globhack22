@@ -103,7 +103,6 @@ def makeAccount():
     with open('./db/userCredentials.csv', 'r+') as cred:
         csv_reader = csv.reader(cred, delimiter=",")
         for row in csv_reader:
-            print(row[0])
             if email == row[0]:
                 # redirect to invalid login
                 return render_template("createAccount.html",invalidLogin=True)
