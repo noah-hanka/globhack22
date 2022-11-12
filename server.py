@@ -29,7 +29,6 @@ def form():
     return render_template('userlogin.html',invalidLogin = True)
 @app.route('/submitForm', methods=["POST"])
 def submitForm():
-    
     email = request.form["email"]
     password = request.form["password"]
     address = request.form["address"]
@@ -57,13 +56,13 @@ def submitForm():
     if rewrite:
         # update row
         with open('./db/formEntry.csv', 'w') as formW:
-            formW.write(','.join(fields)+'\n')
+            # formW.write(','.join(fields)+'\n')
             writer = csv.writer(formW)
             writer.writerows(lines)
     with open('./db/formEntry.csv','a') as formW:
         writer = DictWriter(formW,fieldnames=fields)
         writer.writerow(row_app)
-        
+    return render_template('landingpage.html')
                     
     
 
