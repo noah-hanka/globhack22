@@ -1,5 +1,5 @@
 from flask import Flask, render_template, redirect, url_for, request
-import matplotlib as plt
+import matplotlib.pyplot as plt
 import csv
 from csv import DictWriter
 from tempfile import NamedTemporaryFile
@@ -134,8 +134,6 @@ def makeAccount():
                 return render_template("createAccount.html", invalidLogin=True)
         csv_writer.writerow(row_app)
         return render_template("form.html", email=email, password=pw)
-
-
 
 
 def getCounts(somePeople):
