@@ -114,11 +114,12 @@ def admin():
 
                 people.sort(reverse=True, key=weightDic)
                 n = len(people)
+                myDic = getCities(people)
+                makePie(myDic)
                 myCounts = getCounts(people)
                 makeGraph(myCounts)
 
-                myDic = getCities(people)
-                makePie(myDic)
+
 
                 return render_template('admin.html', email=email, password=password, people=people, count=n)
     return render_template('adminlogin.html', invalidLogin=True)
