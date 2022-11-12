@@ -21,7 +21,7 @@
         <div id='mainContainer'>
             <div id="peoplebox">
             <h1>Citizen Listing</h1>
-            {% for i in range(1,count) %}
+            {% for i in range(count) %}
                 <div class="person">
                     <div class='location'>
                         {{people[i]["street_address"]}}, {{people[i]["city"]}}, {{people[i]["state"]}}, {{people[i]["zipCode"]}}
