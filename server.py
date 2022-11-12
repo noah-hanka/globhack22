@@ -48,7 +48,6 @@ def submitForm():
     with open('./db/formEntry.csv', 'r') as formR:
         lines = list()
         reader = csv.reader(formR, delimiter=",")
-        writer = DictWriter(formR, fieldnames=fields)
         rewrite = False
         for row in reader:
             if email != row[0]:
@@ -58,8 +57,13 @@ def submitForm():
     if rewrite:
         # update row
         with open('./db/formEntry.csv', 'w') as formW:
+            formW.write(','.join(fields)+'\n')
+            writer = csv.writer(formW)
             writer.writerows(lines)
-    writer.writerow(row_app)
+    with open('./db/formEntry.csv','a') as formW:
+        writer = DictWriter(formW,fieldnames=fields)
+        writer.writerow(row_app)
+        
                     
     
 
