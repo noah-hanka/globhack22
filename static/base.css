@@ -4,10 +4,14 @@ body {
     color: white;
 }
 
-button {
+button,
+#login-form-submit,
+#create-form-submit {
     transition: all .25s;
 }
 
-button:hover {
+button:hover,
+#login-form-submit:hover,
+#create-form-submit:hover {
     transform: scale(1.05);
 }
