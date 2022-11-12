@@ -5,23 +5,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="login-page.css">
+    <link rel="stylesheet" href="../static/userlogin.css">
     <script defer src="login-page.js"></script>
 </head>
 
 <body>
     <main id="main-holder">
+        {% if invalidLogin %}
+            <div id='invalidLogin'>
+                Error: An account already exists under that email
+            </div>
+        {% endif %}
         <h1 id="login-header">Disaster Registration</h1>
 
         <form id="login-form" method="post" action="/form">
-            <label for="email-field"> Email:</label>
-            <input type="text" name="email" id="email-field" class="login-form-field" placeholder="Email"
-                name="username" label="">
-            <label for="password-field"> Password:</label>
-            <input type="password" name="password" id="password-field" class="login-form-field" placeholder="Password"
-                name="password">
-            <label for="login-form-submit"> Login:</label>
-            <input type="submit" value="Login" id="login-form-submit">
+
+            <div class="input-div">
+                <label for="email-field"> Email: &nbsp; </label>
+                <input type="text" name="email" id="email-field" class="login-form-field" placeholder="Email"
+                    name="username" label="" required>
+
+            </div>
+
+            <div class="input-div">
+                <label for="password-field"> Password:&nbsp; </label>
+                <input type="password" name="password" id="password-field" class="login-form-field"
+                    placeholder="Password" name="password" required>
+
+            </div>
+            <!-- label looks ugly -->
+            <!-- <label for="login-form-submit"> Login:</label> -->
+            <input type="submit" value="Login" id="login-form-submit" required>
 
         </form>
         <!-- hey -->
