@@ -40,8 +40,10 @@ body {
 .login-form-field {
     border: none;
     border-bottom: 1px solid #3a3a3a;
+    margin-bottom: 10px;
     border-radius: 3px;
     outline: none;
+    padding: 0px 0px 5px 5px;
 }
 
 #login-form-submit {
@@ -54,16 +56,4 @@ body {
     background-color: #3a3a3a;
     cursor: pointer;
     outline: none;
-}
-
-
-.input-div {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    margin-bottom: 10px;
-    padding: 0px 0px 5px 5px;
-
 }
