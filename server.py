@@ -1,9 +1,12 @@
+from matplotlib.ticker import MaxNLocator
+from matplotlib.figure import Figure
+from csv import DictWriter
+import csv
+import matplotlib.pyplot as plt
 from flask import Flask, render_template, redirect, url_for, request
 import matplotlib
+import math
 matplotlib.use('Agg')
-import matplotlib.pyplot as plt
-import csv
-from csv import DictWriter
 app = Flask(__name__)
 import os
 THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
@@ -105,12 +108,13 @@ def admin():
                                   for i in range(len(fields))}
                         people.append(newDic)
                 people = people[1:]
-                people.sort(reverse=True,key=personWeight)
+                people.sort(reverse=True, key=personWeight)
                 n = len(people)
                 myCounts = getCounts(people)
                 makeGraph(myCounts)
                 return render_template('admin.html', email=email, password=password, people=people, count=n)
     return render_template('adminlogin.html', invalidLogin=True)
+
 
 def personWeight(person):
     total = 0
@@ -127,6 +131,8 @@ def personWeight(person):
     return total
 
 # creating account routing
+
+
 @app.route('/createAccount')
 def createAccount():
     return render_template('createAccount.html')
@@ -179,9 +185,12 @@ def makeGraph(actualCount):
     x_pos = [i for i, _ in enumerate(topics)]
 
     plt.bar(x_pos, actualCount, color='blue')
-    plt.xlabel("Citizen Needs")
-    plt.ylabel("Total Citizens in Need")
-    plt.title("What Our Citizens Need")
+    plt.xlabel("Resource")
+    plt.ylabel("Total Requests")
     plt.xticks(x_pos, topics)
+
+    yint = range(min(actualCount), math.ceil(max(actualCount))+1)
+
+    matplotlib.pyplot.yticks(yint)
 
     plt.savefig("./static/output.jpg")
