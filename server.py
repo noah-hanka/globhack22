@@ -192,5 +192,5 @@ def makeGraph(actualCount):
     yint = range(min(actualCount), math.ceil(max(actualCount))+1)
 
     matplotlib.pyplot.yticks(yint)
-
-    plt.savefig("./static/output.jpg")
+    outputFile = os.path.join(THIS_FOLDER, './static/output.jpg')
+    plt.savefig(outputFile)
