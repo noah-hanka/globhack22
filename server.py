@@ -21,7 +21,7 @@ def form():
 
 @app.route('/')
 def loginPage():
-    return render_template('./static/login.html')
+    return render_template('userlogin.html')
 
 @app.route('/makeAccount',methods=["POST"])
 def makeAccount():
@@ -31,7 +31,7 @@ def makeAccount():
     fields = ['email', 'user']
     row_app = {'email':user, 'password':pw} # row to append to csv
 
-    with open('globhack2022/db/userCredentials.csv', 'a') as cred:
+    with open('./db/userCredentials.csv', 'a') as cred:
         csv_reader = csv.reader(cred, delimiter=",")
         for row in csv_reader:
             if user in row[0]:
@@ -39,4 +39,4 @@ def makeAccount():
             else:
                 csv_writer = DictWriter(cred, fieldnames=fields)
                 csv_writer.writerow(row_app)
-    return render_template("./static/form.html")
+    return render_template("form.html")
