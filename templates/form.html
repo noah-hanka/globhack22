@@ -1,47 +1,27 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <style>
-            label {
-                display: block;
-            }
-            .inline {
-                display: inline-block;
-            }
-            .sform{
-                display: block;
-            }
-        </style>
-    </head>
-    <body>
-    <h1>Resource Assistance Form</h1>
-        <form id = "help-form" method = "post" action = "/">
-            <h2>Basic Information</h2>
-            <label for = "city">City:</label>
-            <input type = "text" id = "city" name = "city">
-            <label for = "state">State:</label>
-            <input type = "text" id = "state" name = "state">
-            <label for = "zip code">Zip Code:</label>
-            <input type = "text" id = "zipcode" name = "zipcode">
-            <label for = "importance"></label>
-            <h2>Required Resources Information</h2>
-            <form id = "urgency-form">
-                <label class = "inline" for = "5">Extremely Urgent (5)</label>
-                <input type = "radio" id = "5" name = "urgency"; value = "5">
-                <br>
-                <label class = "inline" for = "5">4</label>
-                <input type = "radio" id = "4" name = "urgency"; value = "4">
-                <br>
-                <label class = "inline" for = "5">3</label>
-                <input type = "radio" id = "3" name = "urgency"; value = "3">
-                <br>
-                <label class = "inline" for = "5">2</label>
-                <input type = "radio" id = "2" name = "urgency"; value = "2">
-                <br>
-                <label class = "inline" for = "5">1</label>
-                <input type = "radio" id = "1" name = "urgency"; value = "1">
-                <br>
-            </form>
-        </form>
-    </body>
-</html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+
+
+<h1>Resources Assistance Form</h1>
+<form>
+    <h2>Basic Information</h2>
+    <label for = "city">City Name:</label>
+    <input type = "text" id = "city" name = "city">
+    <label for = "state">State:</label>
+    <input type = "text" id = "state" name = "state">
+    <label for = "zip code">Zip Code:</label>
+    <input type = "text" id = "zipcode" name = "zipcode">
+    <label for = "importance"></label>
+    <form>
+        <h2></h2>
+        <input type = "radio" id = "5" name = "urgency"; value = "5">
+        <label for = "5">5</label>
+    </form>
+</form>
