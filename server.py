@@ -99,15 +99,26 @@ def admin():
                         newDic = {fields[i]: row[i]
                                   for i in range(len(fields))}
                         people.append(newDic)
+                people.sort(reverse=True,key=personWeight)
                 n = len(people)
                 myCounts = getCounts(people)
                 makeGraph(myCounts)
                 return render_template('admin.html', email=email, password=password, people=people, count=n)
     return render_template('adminlogin.html', invalidLogin=True)
 
-def sortPeople(people):
-    pass
-
+def personWeight(person):
+    total = 0
+    if person['water'] == 'yes':
+        total += 4
+    if person['food'] == 'yes':
+        total += 2.5
+    if person['electricity'] == 'yes':
+        total += 1
+    if person['tp'] == 'yes':
+        total += 1.5
+    if person['shelter'] == 'yes':
+        total += 3.5
+    return total
 
 # creating account routing
 @app.route('/createAccount')
