@@ -44,9 +44,10 @@ def submitForm():
 
     fields = ["email", "password", "street_address", "city", "state", "zipCode", "water", "food", "electricity", "shelter", "tp"]
     row_app = {"email":email, "password":password, "street_address":address, "city":city, "state":state, "zipCode":zipCode, "water":water, "food":food, "electricity":elec, "shelter":shelter, "tp":tp}
-
+    tempfile = NamedTemporaryFile(mode='w', delete=False)
+    
     with open('./db/formEntry.csv', 'r+') as form, tempfile:
-        tempfile = NamedTemporaryFile(mode='w', delete=False)
+        
         temp_reader = csv.DictReader(form, fieldnames=fields)
         temp_writer = csv.DictWriter(tempfile, fieldnames=fields)
         
