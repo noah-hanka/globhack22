@@ -4,26 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>D.R.A.S Relief Form</title>
+    <title>D.R.A.S. Relief Form</title>
     <link rel="stylesheet" href="static/base.css">
 
 </head>
 
 
-<div class = "btn-block">
-    <h1>D.R.A.S. Relief Form</h1>
-    <h2>Basic Information</h2>
-    <label for = "address">Street Address:</label>
-    <input type = "text" id = "address" name = "address" required>
-    <label for = "city">City Name:</label>
-    <input type = "text" id = "city" name = "city" required>
-    <label for = "state">State:</label>
-    <input type = "text" id = "state" name = "state" required>
-    <label for = "zipcode">Zip Code:</label>
-    <input type = "text" id = "zipcode" name = "zipcode" required>
-    <h2>Resource Information</h2>
+<body>
     <div class = "btn-block">
-        <form id = "basic-information" method = "post" action = "/userlogin">
+        <form id = "form" method = "post" action = "/submitForm">
+            <h1>D.R.A.S. Relief Form</h1>
+            <h2>Basic Information</h2>
+            <label for = "address">Street Address:</label>
+            <input type = "text" id = "address" name = "address" required>
+            <label for = "city">City Name:</label>
+            <input type = "text" id = "city" name = "city" required>
+            <label for = "state">State:</label>
+            <input type = "text" id = "state" name = "state" required>
+            <label for = "zipcode">Zip Code:</label>
+            <input type = "text" id = "zipcode" name = "zipcode" required>
+            <h2>Resource Information</h2>
             <p>Do You Need Water?</p>
             <fieldset id = "group1">
                 <input type = "radio" id = "watery" name = "group1"; value = "watery">
@@ -64,10 +64,8 @@
                 <input type = "radio" id = "tpn" name = "group5"; value = "tpn">
                 <label class = "inline" for = "tpn">No</label>
             </fieldset>
-            <div class = "btn-block">
-                <input type="submit" value="Submit" id="form-submit">
-            </div>
-        </form>
+            <input type="submit" value="Submit" id="form-submit">
+        </form> -->
     </div>
-</div>
+</body>
 

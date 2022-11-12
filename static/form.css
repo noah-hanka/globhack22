@@ -12,10 +12,10 @@ label {
 }
 
 .btn-block {
-    /* margin-top: 10px; */
-    /* text-align: center; */
-    justify-items: center;
-    align-items: center;
+    margin-top: 10px;
+    text-align: center;
+    /* justify-items: center;
+    align-items: center; */
 }
 
 form {
