@@ -218,4 +218,4 @@ def getCities(somePeople):
 
 
 def makePie(citiesDic):
-    pass
+    return
