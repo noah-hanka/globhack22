@@ -60,10 +60,10 @@ def makeAccount():
     fields = ['email', 'password', 'birthdate', 'lic_no', 'ssn']
     # row to append to csv
     row_app = {'email':email, 'password':pw, 'birthdate':bd, 'lic_no':licno, 'ssn':ssn} 
-
     with open('./db/userCredentials.csv', 'a') as cred:
         csv_reader = csv.reader(cred, delimiter=",")
         for row in csv_reader:
+            print('i just read a row')
             if email == row[0]:
                 # redirect to invalid login
                 return render_template("createAccount.html",invalidLogin=True)
