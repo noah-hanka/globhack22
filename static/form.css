@@ -72,3 +72,7 @@ form button {
     margin: 0 .5rem 0 .5rem;
     width: 40%;
 }
+
+fieldset {
+    width: 100%;
+}
