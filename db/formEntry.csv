@@ -1,3 +1,4 @@
 email,password,street_address,city,state,zipCode,water,food,electricity,shelter,tp
 ingridhanka@hotmail.com,password,225 Mulberry Road,Storrs,CT,06250,yes,yes,yes,yes,yes
 a,b,225 Mulberry Road,Mansfield Center,CT,06250,yes,no,no,yes,yes
+john,johnpw,john road,john town,va,13204,yes,yes,no,yes,no

@@ -1,4 +1,6 @@
 from flask import Flask, render_template, redirect, url_for, request
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import csv
 from csv import DictWriter
