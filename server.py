@@ -49,7 +49,6 @@ def admin():
                         print(row)
                         people.append(row)
                 n = len(people)
-                print(people)
                 return render_template('admin.html',email = email, password = password, people = people, count = n)
     return render_template('adminlogin.html',invalidLogin = True)
 
