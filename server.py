@@ -77,7 +77,7 @@ def admin():
             if email == row[0] and password == row[1]:
                 people = []
                 with open('formEntry.csv') as peopleFile:
-                    reader = csv.reader(credentials,delimiter=',')
+                    reader = csv.reader(peopleFile,delimiter=',')
                     for row in reader:
                         people.append(row)
                 n = len(people)
