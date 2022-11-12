@@ -59,7 +59,8 @@ def makeAccount():
     ssn = request.form['social_security_number']
 
     fields = ['email', 'password', 'birthdate', 'lic_no', 'ssn']
-    row_app = {'email':email, 'password':pw, 'birthdate':bd, 'lic_no':licno, 'ssn':ssn} # row to append to csv
+    # row to append to csv
+    row_app = {'email':email, 'password':pw, 'birthdate':bd, 'lic_no':licno, 'ssn':ssn} 
 
     with open('./db/userCredentials.csv', 'a') as cred:
         csv_reader = csv.reader(cred, delimiter=",")
