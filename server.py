@@ -1,6 +1,5 @@
 from flask import Flask, render_template, redirect, url_for, request
-import csv
-from csv import DictWriter
+from csv import *
 app = Flask(__name__)
 
 # langing page
@@ -61,7 +60,7 @@ def makeAccount():
     # row to append to csv
     row_app = {'email':email, 'password':pw, 'birthdate':bd, 'lic_no':licno, 'ssn':ssn} 
 
-    with open('./db/userCredentials.csv', 'a+') as cred:
+    with open('./db/userCredentials.csv', 'w+') as cred:
         csv_reader = csv.reader(cred, delimiter=",")
         for row in csv_reader:
             print(row[0])
