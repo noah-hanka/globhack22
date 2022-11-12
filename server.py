@@ -204,6 +204,10 @@ def makeGraph(actualCount):
 
     matplotlib.pyplot.yticks(yint)
     outputFile = os.path.join(THIS_FOLDER, './static/output.jpg')
+    try:
+        os.remove(outputFile)
+    except:
+        pass
     plt.savefig(outputFile)
 
 
