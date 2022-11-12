@@ -232,7 +232,5 @@ def makePie(citiesDic):
     # Equal aspect ratio ensures that pie is drawn as a circle.
     ax1.axis('equal')
 
-    plt.title("Requests by City")
-
     outputFile2 = os.path.join(THIS_FOLDER, './static/output2.jpg')
     plt.savefig(outputFile2)
