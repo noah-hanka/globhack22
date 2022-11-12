@@ -13,7 +13,11 @@
     <main id="main-holder">
         <h1 id="login-header">Disaster Registration - Account Creation</h1>
 
-
+        {% if {invalidLogin} %}
+            <div id='invalidLogin'>
+                Error: An account already exists under that email
+            </div>
+        {% endif %}
         <form id="login-form" method="post" action="/makeAccount">
 
             <label for="email-field"> Email:</label>
