@@ -6,22 +6,83 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form</title>
     <link rel="stylesheet" href="form.css">
+    <style>
+        center{
+            display: flex;
+            justify-content: center;
+        }
+        label{
+            display: block;
+        }
+        .inline{
+            display: inline-block;
+        }
+        .btn-block {
+            margin-top: 10px;
+            text-align: center;
+        }
+        form { 
+            margin: 0 auto; 
+            width:250px;
+        }   
+    </style>
 </head>
 
-
-<h1>Resources Assistance Form</h1>
-<form>
-    <h2>Basic Information</h2>
-    <label for = "city">City Name:</label>
-    <input type = "text" id = "city" name = "city">
-    <label for = "state">State:</label>
-    <input type = "text" id = "state" name = "state">
-    <label for = "zip code">Zip Code:</label>
-    <input type = "text" id = "zipcode" name = "zipcode">
-    <label for = "importance"></label>
-    <form>
-        <h2></h2>
-        <input type = "radio" id = "5" name = "urgency"; value = "5">
-        <label for = "5">5</label>
+<div class = "center">
+    <h1 style="text-align:center">Resources Assistance Form</h1>
+    <form class = "center" id = "basic-information" method = "post" action = "/userlogin">
+        <h2>Basic Information</h2>
+        <label for = "city">City Name:</label>
+        <input type = "text" id = "city" name = "city" required>
+        <label for = "state">State:</label>
+        <input type = "text" id = "state" name = "state" required>
+        <label for = "zipcode">Zip Code:</label>
+        <input type = "text" id = "zipcode" name = "zipcode" required>
+        <h2>Resource Information</h2>
+        <p>Do You Need Water?</p>
+        <div class = "center">
+            <form>
+                <input type = "radio" id = "watery" name = "urgency"; value = "watery">
+                <label class = "inline" for = "watery">Yes</label>
+                <br>
+                <input type = "radio" id = "watern" name = "urgency"; value = "watern">
+                <label class = "inline" for = "watern">No</label>
+            </form>
+            <p style>Do You Need Food?</p>
+            <form>
+                <input type = "radio" id = "foody" name = "urgency"; value = "foody">
+                <label class = "inline" for = "foody">Yes</label>
+                <br>
+                <input type = "radio" id = "foodn" name = "urgency"; value = "foodn">
+                <label class = "inline" for = "foodn">No</label>
+            </form>
+            <p>Do You Have Electricity?</p>
+            <form>
+                <input type = "radio" id = "electricityy" name = "urgency"; value = "electricityy">
+                <label class = "inline" for = "electricityy">Yes</label>
+                <br>
+                <input type = "radio" id = "electricityn" name = "urgency"; value = "electricityn">
+                <label class = "inline" for = "electricityn">No</label>
+            </form>
+            <p>Do You Have Shelter?</p>
+            <form>
+                <input type = "radio" id = "sheltery" name = "urgency"; value = "sheltery">
+                <label class = "inline" for = "sheltery">Yes</label>
+                <br>
+                <input type = "radio" id = "sheltern" name = "urgency"; value = "sheltern">
+                <label class = "inline" for = "sheltern">No</label>
+            </form>
+            <p>Do You Have Toilet Paper?</p>
+            <form>
+                <input type = "radio" id = "tpy" name = "urgency"; value = "tpy">
+                <label class = "inline" for = "tpy">Yes</label>
+                <br>
+                <input type = "radio" id = "tpn" name = "urgency"; value = "tpn">
+                <label class = "inline" for = "tpn">No</label>
+            </form>
+        </div>
+        <div class = "center">
+            <input type="submit" value="Submit" id="form-submit">
+        </div>
     </form>
-</form>
+</div>
