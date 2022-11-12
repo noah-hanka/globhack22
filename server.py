@@ -71,7 +71,7 @@ def submitForm():
     with open('./db/formEntry.csv', 'a') as formW:
         writer = DictWriter(formW, fieldnames=fields)
         writer.writerow(row_app)
-    return render_template('landingpage.html')
+    return render_template('complete.html', email=email, password=password)
 
 
 # administrator login routing
@@ -103,6 +103,9 @@ def admin():
                 return render_template('admin.html', email=email, password=password, people=people, count=n)
     return render_template('adminlogin.html', invalidLogin=True)
 
+def sortPeople(people):
+    pass
+
 
 # creating account routing
 @app.route('/createAccount')
@@ -132,6 +135,7 @@ def makeAccount():
                 return render_template("createAccount.html", invalidLogin=True)
         csv_writer.writerow(row_app)
         return render_template("form.html", email=email, password=pw)
+
 
 def getCounts(somePeople):
     counts = [0, 0, 0, 0, 0]
