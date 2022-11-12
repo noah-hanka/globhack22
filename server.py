@@ -1,9 +1,12 @@
-from flask import Flask, render_template, redirect, url_for, request
-import matplotlib.pyplot as plt
-import csv
+from matplotlib.ticker import MaxNLocator
+from matplotlib.figure import Figure
 from csv import DictWriter
-from tempfile import NamedTemporaryFile
-import shutil
+import csv
+import matplotlib.pyplot as plt
+from flask import Flask, render_template, redirect, url_for, request
+import matplotlib
+import math
+matplotlib.use('Agg')
 app = Flask(__name__)
 
 # langing page
@@ -73,7 +76,7 @@ def submitForm():
     with open('./db/formEntry.csv', 'a') as formW:
         writer = DictWriter(formW, fieldnames=fields)
         writer.writerow(row_app)
-    return render_template('landingpage.html')
+    return render_template('complete.html', email=email, password=password)
 
 
 # administrator login routing
@@ -99,6 +102,8 @@ def admin():
                         newDic = {fields[i]: row[i]
                                   for i in range(len(fields))}
                         people.append(newDic)
+                people = people[1:]
+                people.sort(reverse=True, key=personWeight)
                 n = len(people)
                 myCounts = getCounts(people)
                 makeGraph(myCounts)
@@ -106,7 +111,23 @@ def admin():
     return render_template('adminlogin.html', invalidLogin=True)
 
 
+def personWeight(person):
+    total = 0
+    if person['water'] == 'yes':
+        total += 4
+    if person['food'] == 'yes':
+        total += 2.5
+    if person['electricity'] == 'yes':
+        total += 1
+    if person['tp'] == 'yes':
+        total += 1.5
+    if person['shelter'] == 'yes':
+        total += 3.5
+    return total
+
 # creating account routing
+
+
 @app.route('/createAccount')
 def createAccount():
     return render_template('createAccount.html')
@@ -136,8 +157,6 @@ def makeAccount():
         return render_template("form.html", email=email, password=pw)
 
 
-
-
 def getCounts(somePeople):
     counts = [0, 0, 0, 0, 0]
     for person in somePeople:
@@ -161,9 +180,12 @@ def makeGraph(actualCount):
     x_pos = [i for i, _ in enumerate(topics)]
 
     plt.bar(x_pos, actualCount, color='blue')
-    plt.xlabel("Citizen Needs")
-    plt.ylabel("Total Citizens in Need")
-    plt.title("What Our Citizens Need")
+    plt.xlabel("Resource")
+    plt.ylabel("Total Requests")
     plt.xticks(x_pos, topics)
+
+    yint = range(min(actualCount), math.ceil(max(actualCount))+1)
+
+    matplotlib.pyplot.yticks(yint)
 
     plt.savefig("./static/output.jpg")

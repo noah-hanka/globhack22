@@ -59,3 +59,20 @@ form button {
     height: 30px;
     margin-top: 25px;
 }
+
+#questions {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.radioGroup {
+    margin: 0 .5rem 0 .5rem;
+    width: 40%;
+}
+
+fieldset {
+    width: 100%;
+}

@@ -1,6 +1,9 @@
 body {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    background-image: url("adminbackground.jpg");
+    background-size: cover;
 }
 
 header {
@@ -10,39 +13,92 @@ header {
     align-items: center;
     background-color: rgba(0, 0, 0, .3);
     margin: 3rem;
-    width: 80%;
+    width: 40%;
     font-size: x-large;
     border-radius: 1rem;
     padding: 1rem 0 1rem 0;
 }
 
+button {
+    border-radius: 1rem;
+    padding: .5rem;
+    background-color: #023E7D;
+    color: white;
+    border: none;
+    width: 100%;
+    height: 100%;
+}
+
 #mainpage {
     width: 100%;
-    height: 100vh;
-    background-color: #002855;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
 }
 
+#mainContainer {
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: flex-start;
+}
 
-.person,
-.needs {
+#peoplebox {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 60%;
+    border-radius: 1rem;
+    background-color: rgba(0, 0, 0, .3);
+    padding: 0 .5rem 0 .5rem;
+}
+
+.person {
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
+    padding: .25rem 1rem .25rem 1rem;
+    width: 85%;
+    border-radius: 1rem;
+    background-color: rgba(0, 0, 0, .3);
+    margin: .25rem 0 .25rem 0;
+}
+
+.location {
+    width: 50%;
+}
+
+.needs {
+    width: 50%;
+    margin-left: 1rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
     justify-content: flex-start;
 }
 
-#box {
-    width: 90%;
-    height: 90%;
-    padding: 1rem;
-    border-radius: 1rem;
-    background-color: rgba(0, 0, 0, .3);
+.parameter {
+    width: 50%;
+}
+
+#graphs {
     display: flex;
-    justify-content: center;
+    position: sticky;
+    justify-content: flex-start;
     flex-direction: column;
     align-items: center;
+    border-radius: 1rem;
+    background-color: rgba(0, 0, 0, .3);
+    margin: 0 0 .5rem 0;
+    padding: 1rem;
+    width: 30%;
+}
+
+img {
+    width: 100%;
 }

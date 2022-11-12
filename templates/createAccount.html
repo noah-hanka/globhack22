@@ -4,16 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>D.R.A.S Create Account</title>
+    <title>DRAS Create Account</title>
     <link rel="stylesheet" href="../static/createAccount.css">
     <link rel="stylesheet" href="static/base.css">
-
-    <script defer src="login-page.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <main id="main-holder">
-        <h1 id="login-header">Disaster Registration - Account Creation</h1>
+        <h1 id="login-header">DRAS - Account Creation</h1>
 
         {% if invalidLogin %}
         <div id='invalidLogin'>
@@ -41,7 +42,7 @@
             <div class="input-div">
                 <label for="license-number"> License Number:</label>
                 <input type="password" name="license_number" id="license-number" class="login-form-field"
-                    placeholder="123" required>
+                    placeholder="123456789" required>
             </div>
 
             <div class="input-div">

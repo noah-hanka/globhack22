@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DRAS Form Complete</title>
+    <link rel="stylesheet" href="static/base.css">
+    <link rel="stylesheet" href="static/complete.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main id="main-holder">
+        <p>Thank you for submitting the DRAS form, your information has been processed. If you need to update any information, please redo the form with the button below</p>
+        <form id="login-form" method="post" action="/form">
+            <input type="hidden" name="email" value={{email}}>
+            <input type="hidden" name="password" value={{password}}>
+            <input id="login-form-submit" type="submit" value="Redo Form">
+        </form>
+    </main>
+</body>
+</html>
