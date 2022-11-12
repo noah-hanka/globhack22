@@ -1,2 +1,2 @@
-street_address,state,zipCode,ssn,rsrc_req,notes
-123 Uconn Ave,CT,6268,123456789,Water,"Have no access to water, need water bottles"
+street_address,city,state,zipCode,water,food,electricity,shelter,tp,
+123 Uconn Ave,storrs,CT,6268,yes,yes,yes,yes,yes,
