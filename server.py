@@ -34,10 +34,13 @@ def createAccount():
 @app.route('/makeAccount',methods=["POST"])
 def makeAccount():
     email = request.form["email"]
-    pw = request.form["pw"]
+    pw = request.form["password"]
+    bd = request.form['birthdate']
+    licno = request.form['license_number']
+    ssn = request.form['social_security_number']
 
-    fields = ['email', 'password']
-    row_app = {'email':email, 'password':pw} # row to append to csv
+    fields = ['email', 'password', 'birthdate', 'lic_no', 'ssn']
+    row_app = {'email':email, 'password':pw, 'birthdate':bd, 'lic_no':licno, 'ssn':ssn} # row to append to csv
 
     with open('./db/userCredentials.csv', 'a') as cred:
         csv_reader = csv.reader(cred, delimiter=",")
