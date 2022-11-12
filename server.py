@@ -12,6 +12,8 @@ def landingPage():
     return render_template('landingpage.html')
 
 # general user login routing
+
+
 @app.route('/userlogin')
 def userLogin():
     return render_template('userlogin.html')
@@ -30,6 +32,7 @@ def form():
                 else:
                     break
     return render_template('userlogin.html', invalidLogin=True)
+
 
 @app.route('/submitForm', methods=["POST"])
 def submitForm():
@@ -132,6 +135,7 @@ def makeAccount():
                 return render_template("createAccount.html", invalidLogin=True)
         csv_writer.writerow(row_app)
         return render_template("form.html", email=email, password=pw)
+
 
 def getCounts(somePeople):
     counts = [0, 0, 0, 0, 0]
