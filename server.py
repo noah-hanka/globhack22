@@ -34,7 +34,7 @@ def makeAccount():
     user = request.form["username"]
     pw = request.form["pw"]
 
-    fields = ['email', 'user']
+    fields = ['email', 'password']
     row_app = {'email':user, 'password':pw} # row to append to csv
 
     with open('./db/userCredentials.csv', 'a') as cred:
