@@ -1,5 +1,6 @@
 from flask import Flask, render_template, redirect, url_for, request
-from csv import *
+import csv
+from csv import DictWriter
 app = Flask(__name__)
 
 # langing page
@@ -60,11 +61,11 @@ def makeAccount():
     # row to append to csv
     row_app = {'email':email, 'password':pw, 'birthdate':bd, 'lic_no':licno, 'ssn':ssn} 
 
-    with open('./db/userCredentials.csv', 'w+') as cred:
+    with open('./db/userCredentials.csv', 'r+') as cred:
         csv_reader = csv.reader(cred, delimiter=",")
         for row in csv_reader:
             print(row[0])
-            if email in row[0]:
+            if email == row[0]:
                 # redirect to invalid login
                 return render_template("createAccount.html",invalidLogin=True)
         csv_writer = DictWriter(cred, fieldnames=fields)
