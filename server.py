@@ -2,8 +2,6 @@ from flask import Flask, render_template, redirect, url_for, request
 import matplotlib.pyplot as plt
 import csv
 from csv import DictWriter
-from tempfile import NamedTemporaryFile
-import shutil
 app = Flask(__name__)
 
 # langing page
@@ -73,7 +71,7 @@ def submitForm():
     with open('./db/formEntry.csv', 'a') as formW:
         writer = DictWriter(formW, fieldnames=fields)
         writer.writerow(row_app)
-    return render_template('landingpage.html')
+    return render_template('complete.html', email=email, password=password)
 
 
 # administrator login routing
