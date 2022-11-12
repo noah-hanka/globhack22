@@ -1,0 +1,13 @@
+body {
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+button {
+    transition: all .25s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
