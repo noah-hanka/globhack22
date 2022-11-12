@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="login-page.css">
+    <script defer src="login-page.js"></script>
+</head>
+
+<body>
+    <main id="main-holder">
+        <h1 id="login-header">Disaster Registration</h1>
+
+
+        <label for="usertype">Who is logging in?</label>
+
+        <select name="usertype" id="usertype">
+            <option value="citizen">Citizen</option>
+            <option value="admin">Administrator</option>
+        </select>
+
+
+        <form id="login-form" method="post" action="/form">
+            <label for="email-field"> Email:</label>
+            <input type="text" name="Email" id="email-field" class="login-form-field" placeholder="Email"
+                name="username" label="">
+            <label for="password-field"> Password:</label>
+            <input type="password" name="password" id="password-field" class="login-form-field" placeholder="Password"
+                name="password">
+            <label for="login-form-submit"> Login:</label>
+            <input type="submit" value="Login" id="login-form-submit">
+
+        </form>
+        <!-- hey -->
+
+    </main>
+</body>
+
+</html>
