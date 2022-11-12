@@ -31,18 +31,17 @@ def form():
 def adminLogin():
     return render_template('adminlogin.html')
 
-@app.route('/admin')
+@app.route('/admin',methods=["POST"])
 def admin():
     email = request.form["email"]
-    password = request.form["email"]
+    password = request.form["password"]
+    print(email)
+    print(password)
     with open('./db/adminCredentials.csv') as credentials:
         reader = csv.reader(credentials,delimiter=',')
         for row in reader:
-            if email == row[0]:
-                if password == row[1]:
-                    return render_template('admin.html',email = email, password = password)
-                else:
-                    break
+            if email == row[0] and password == row[1]:
+                return render_template('admin.html',email = email, password = password)
     return render_template('adminlogin.html',invalidLogin = True)
 
 
