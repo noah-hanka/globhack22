@@ -1,5 +1,5 @@
 from flask import Flask, render_template, redirect, url_for, request
-import matplotlib as plt
+import matplotlib.pyplot as plt
 import csv
 from csv import DictWriter
 from tempfile import NamedTemporaryFile
