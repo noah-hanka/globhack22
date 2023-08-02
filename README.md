@@ -1,1 +1,1 @@
-this is our awesome fall 2022 hackathon project
+Fall 2022 Global Health Hackathon Project
